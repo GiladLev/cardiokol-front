@@ -156,10 +156,9 @@ export default function RecordScreen({
         ...Audio.RecordingOptionsPresets.HIGH_QUALITY,
         isMeteringEnabled: true,
       });
-      recording.setProgressUpdateInterval(50)
       recording.setOnRecordingStatusUpdate((status) => {
-        console.log("metering:", status.metering);
-        console.log("duration in milisec:", status.durationMillis);
+        // console.log("metering:", status.metering);
+        // console.log("duration in milisec:", status.durationMillis);
         setMetering(status.metering);
         setDurationMillis(status.durationMillis);
       });
@@ -178,10 +177,10 @@ export default function RecordScreen({
     console.log("Recording stopped and stored at", uri);
 
     if (mode == "Training") {
-      // const result = await sendTrainingRecord(uri);
+      const result = await sendTrainingRecord(uri);
       setSend(true);
     } else {
-      // const result = await sendTestRecord(uri);
+      const result = await sendTestRecord(uri);
       setSend(true);
     }
     navigation.replace(nextScreen);

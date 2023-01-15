@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "cardiokol",
-    "slug": "cardiokol",
-    "version": "1.0.3",
+    "name": "CardioKol",
+    "slug": "CardioKol",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -18,14 +18,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.softman.cardiokol",
-      "buildNumber": "3"
+      "supportsTablet": true
     },
     "android": {
-      "versionCode": 3,
+      "versionCode": 2,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "softman.CardioKol"
@@ -35,7 +33,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "dee1fcce-a87a-4224-8fd9-a158e53cbd69"
+        "projectId": "4be2351a-a57f-489c-b8df-71c8abea9dcd"
       }
     }
   }

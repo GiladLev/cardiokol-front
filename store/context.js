@@ -46,7 +46,7 @@ function ContextProvider({ children }) {
   const [authTrainingStatus, setAuthTrainingStatus] = useState();
   const [authName, setAuthName] = useState();
   const [authGender, setAuthGender] = useState();
-  const [testPlayingStatus, setTestPlayingStatus] = useState(true);
+  const [testPlayingStatus, setTestPlayingStatus] = useState();
   const [testnumOfRecord, setTestNumOfRecord] = useState(0);
   const [finishDecibel, setFinishDecibel] = useState([-160,-160,-160,-160,-160,-160, -160,-160,-160,-160,-160,-160]);
   

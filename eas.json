@@ -13,15 +13,6 @@
     "production": {}
   },
   "submit": {
-    "production": {
-      "ios": {
-        "appleId": "softman.apps@gmail.com",
-        "ascAppId": "1665392252",
-        "appleTeamId": "S26H5WKQ22"
-      },
-      "android": {
-        "serviceAccountKeyPath": "../pc-api-4641506869422616455-480-ade0e56897b6.json"
-      }
-    }
+    "production": {}
   }
 }
