@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70" height="70" viewBox="0 0 70 70">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="0.295" x2="0.804" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#8cd7dc"/>
+      <stop offset="1" stop-color="#e0f1f6"/>
+    </linearGradient>
+  </defs>
+  <g id="router_icon" data-name="router icon" transform="translate(13.347 11.533)">
+    <circle id="Ellipse_152" data-name="Ellipse 152" cx="35" cy="35" r="35" transform="translate(-13.347 -11.533)" fill="url(#linear-gradient)"/>
+    <path id="Path_551" data-name="Path 551" d="M38.795,28.24H4.511A4.516,4.516,0,0,1,0,23.729V16.511A4.516,4.516,0,0,1,4.511,12H38.795a4.516,4.516,0,0,1,4.511,4.511v7.218A4.516,4.516,0,0,1,38.795,28.24ZM4.511,13.8A2.71,2.71,0,0,0,1.8,16.511v7.218a2.71,2.71,0,0,0,2.707,2.707H38.795A2.71,2.71,0,0,0,41.5,23.729V16.511A2.71,2.71,0,0,0,38.795,13.8Z" transform="translate(0 8.848)" fill="#212d39"/>
+    <path id="Path_552" data-name="Path 552" d="M3.9,25.413a.9.9,0,0,1-.9-.9V20.9a.9.9,0,1,1,1.8,0v3.609A.9.9,0,0,1,3.9,25.413Z" transform="translate(2.413 15.284)" fill="#212d39"/>
+    <path id="Path_553" data-name="Path 553" d="M17.9,17.826a.9.9,0,0,1-.9-.9V7.9a.9.9,0,0,1,1.8,0v9.022A.9.9,0,0,1,17.9,17.826Z" transform="translate(13.675 4.826)" fill="#212d39"/>
+    <path id="Path_554" data-name="Path 554" d="M20.9,25.413a.9.9,0,0,1-.9-.9V20.9a.9.9,0,0,1,1.8,0v3.609A.9.9,0,0,1,20.9,25.413Z" transform="translate(16.088 15.284)" fill="#212d39"/>
+    <path id="Path_555" data-name="Path 555" d="M20.707,20.413a2.707,2.707,0,1,1,2.707-2.707A2.71,2.71,0,0,1,20.707,20.413Zm0-3.609a.9.9,0,1,0,.9.9A.9.9,0,0,0,20.707,16.8Z" transform="translate(14.479 11.262)" fill="#212d39"/>
+    <path id="Path_556" data-name="Path 556" d="M5.707,20.413a2.707,2.707,0,1,1,2.707-2.707A2.71,2.71,0,0,1,5.707,20.413Zm0-3.609a.9.9,0,1,0,.9.9A.9.9,0,0,0,5.707,16.8Z" transform="translate(2.413 11.262)" fill="#212d39"/>
+    <path id="Path_557" data-name="Path 557" d="M10.707,20.413a2.707,2.707,0,1,1,2.707-2.707A2.71,2.71,0,0,1,10.707,20.413Zm0-3.609a.9.9,0,1,0,.9.9A.9.9,0,0,0,10.707,16.8Z" transform="translate(6.435 11.262)" fill="#212d39"/>
+    <path id="Path_558" data-name="Path 558" d="M24.581,8.4a.9.9,0,0,1-.776-.44,4.5,4.5,0,0,0-7.687,0,.9.9,0,0,1-1.552-.926,6.308,6.308,0,0,1,10.789,0A.9.9,0,0,1,24.581,8.4Z" transform="translate(11.615 2.413)" fill="#212d39"/>
+    <path id="Path_559" data-name="Path 559" d="M30.189,6.936a.907.907,0,0,1-.711-.345,9.9,9.9,0,0,0-15.576,0,.9.9,0,0,1-1.42-1.113,11.708,11.708,0,0,1,18.418,0,.9.9,0,0,1-.711,1.46Z" transform="translate(9.887)" fill="#212d39"/>
+  </g>
+</svg>

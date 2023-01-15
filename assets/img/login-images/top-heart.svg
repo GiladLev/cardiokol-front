@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="98.526" height="79.161" viewBox="0 0 98.526 79.161">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.569" y1="1" x2="0.421" y2="0.315" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fbb9bd"/>
+      <stop offset="1" stop-color="#fe515c"/>
+    </linearGradient>
+  </defs>
+  <g id="top_heart_icon" data-name="top heart icon" transform="translate(-131.573 -58.006)">
+    <g id="hearts" transform="translate(131.573 58.006)">
+      <g id="heart_01" data-name="heart 01" transform="translate(0 0)">
+        <path id="heart_bg" data-name="heart bg" d="M18.622.056C38.158-1.029,41.355,14,52.858,16.684,62.638,18.968,68.182,6.251,81.875,6.9s25.105,17.5,8.151,43.581C69.966,81.348,54.315,83,39.6,75.266,20.361,65.158,8.746,51.577,2.972,37.552-3.876,20.923,1.015,1.034,18.622.056" transform="translate(0 0)" fill="#f8d8da"/>
+      </g>
+    </g>
+    <g id="hearts-2" data-name="hearts" transform="translate(145.19 72.752)">
+      <g id="heart_01-2" data-name="heart 01" transform="translate(0 0)">
+        <path id="heart_bg-2" data-name="heart bg" d="M13.983.042C28.652-.773,31.053,10.514,39.69,12.528,47.035,14.243,51.2,4.694,61.48,5.184S80.331,18.323,67.6,37.909C52.537,61.084,40.784,62.323,29.734,56.517,15.289,48.927,6.568,38.729,2.231,28.2-2.91,15.711.762.777,13.983.042" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+      </g>
+    </g>
+  </g>
+</svg>

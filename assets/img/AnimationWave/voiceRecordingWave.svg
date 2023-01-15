@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="378" height="185.65" viewBox="0 0 378 185.65">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_508" data-name="Rectangle 508" width="375" height="153" transform="translate(-2 205)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.5" y1="0.103" x2="0.5" y2="0.87" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#94edf3"/>
+      <stop offset="1" stop-color="#219494"/>
+    </linearGradient>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_438" data-name="Rectangle 438" width="379" height="64" transform="translate(0 0.34)" fill="#208080" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="voice_recording" data-name="voice recording" transform="translate(0 -200.5)">
+    <rect id="white_bg" data-name="white bg" width="374" height="154" transform="translate(1 201)" fill="#fff"/>
+    <rect id="color_bottom_bg" data-name="color bottom bg" width="375" height="108" transform="translate(0 247)" fill="#e0f1f6"/>
+    <g id="counter" transform="translate(-999 -688.578)" opacity="0.8">
+      <g id="lines" transform="translate(0 1)">
+        <line id="Line_687" data-name="Line 687" y2="5.151" transform="translate(1011.443 1043.578)" fill="none" stroke="#b1bdc9" stroke-linecap="round" stroke-width="2"/>
+        <line id="Line_688" data-name="Line 688" y2="5.151" transform="translate(1081.835 1043.578)" fill="none" stroke="#b1bdc9" stroke-linecap="round" stroke-width="2"/>
+        <line id="Line_689" data-name="Line 689" y2="5.151" transform="translate(1153.945 1043.578)" fill="none" stroke="#b1bdc9" stroke-linecap="round" stroke-width="2"/>
+        <line id="Line_690" data-name="Line 690" y2="5.151" transform="translate(1224.338 1043.578)" fill="none" stroke="#b1bdc9" stroke-linecap="round" stroke-width="2"/>
+        <line id="Line_691" data-name="Line 691" y2="5.151" transform="translate(1296.447 1043.578)" fill="none" stroke="#b1bdc9" stroke-linecap="round" stroke-width="2"/>
+        <line id="Line_692" data-name="Line 692" y2="5.151" transform="translate(1366.84 1043.578)" fill="none" stroke="#b1bdc9" stroke-linecap="round" stroke-width="2"/>
+      </g>
+      <g id="Group_686" data-name="Group 686" transform="translate(1002 1051.132)">
+        <text id="_1" data-name="1" transform="translate(-2 1.596)" fill="#3d4648" font-size="15" font-family="Georgia, serif" font-weight="500" letter-spacing="0.02em"><tspan x="-4.27" y="16">1</tspan></text>
+        <text id="_2" data-name="2" transform="translate(69 1.596)" fill="#3d4648" font-size="15" font-family="Georgia, serif" font-weight="500" letter-spacing="0.02em"><tspan x="-4.27" y="16">2</tspan></text>
+        <text id="_3" data-name="3" transform="translate(140 1.596)" fill="#3d4648" font-size="15" font-family="Georgia, serif" font-weight="500" letter-spacing="0.02em"><tspan x="-4.27" y="16">3</tspan></text>
+        <text id="_4" data-name="4" transform="translate(210 1.596)" fill="#3d4648" font-size="15" font-family="Georgia, serif" font-weight="500" letter-spacing="0.02em"><tspan x="-4.27" y="16">4</tspan></text>
+        <text id="_5" data-name="5" transform="translate(283 1.596)" fill="#3d4648" font-size="15" font-family="Georgia, serif" font-weight="500" letter-spacing="0.02em"><tspan x="-4.27" y="16">5</tspan></text>
+        <text id="_6" data-name="6" transform="translate(353 1.596)" fill="#3d4648" font-size="15" font-family="Georgia, serif" font-weight="500" letter-spacing="0.02em"><tspan x="-4.27" y="16">6</tspan></text>
+      </g>
+    </g>
+    <g id="voice" transform="translate(2 -4)" clip-path="url(#clip-path)">
+      <path id="color_gradient" data-name="color gradient" d="M8904,3935.114h375.028V4086.2H8904Z" transform="translate(-8906 -3728.206)" fill="url(#linear-gradient)"/>
+      <g id="loud_vice" data-name="loud vice" transform="translate(-2 187.66)" clip-path="url(#clip-path-2)">
+        <path id="Path_355" data-name="Path 355" d="M8904,3915.832h378.873v170.76H8904Z" transform="translate(-8904 -3916.251)" fill="#208080"/>
+      </g>
+    </g>
+    <g id="lines-2" data-name="lines" transform="translate(0 0.798)">
+      <rect id="Rectangle_439" data-name="Rectangle 439" width="1" height="151" transform="translate(0 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-2" data-name="Rectangle 439" width="1" height="151" transform="translate(7 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-3" data-name="Rectangle 439" width="1" height="151" transform="translate(14 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-4" data-name="Rectangle 439" width="1" height="151" transform="translate(21 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-5" data-name="Rectangle 439" width="1" height="151" transform="translate(28 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-6" data-name="Rectangle 439" width="1" height="151" transform="translate(35 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-7" data-name="Rectangle 439" width="1" height="151" transform="translate(42 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-8" data-name="Rectangle 439" width="1" height="151" transform="translate(49 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-9" data-name="Rectangle 439" width="1" height="151" transform="translate(56 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-10" data-name="Rectangle 439" width="1" height="151" transform="translate(63 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-11" data-name="Rectangle 439" width="1" height="151" transform="translate(70 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-12" data-name="Rectangle 439" width="1" height="151" transform="translate(77 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-13" data-name="Rectangle 439" width="1" height="151" transform="translate(84 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-14" data-name="Rectangle 439" width="1" height="151" transform="translate(91 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-15" data-name="Rectangle 439" width="1" height="151" transform="translate(98 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-16" data-name="Rectangle 439" width="1" height="151" transform="translate(105 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-17" data-name="Rectangle 439" width="1" height="151" transform="translate(112 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-18" data-name="Rectangle 439" width="1" height="151" transform="translate(119 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-19" data-name="Rectangle 439" width="1" height="151" transform="translate(126 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-20" data-name="Rectangle 439" width="1" height="151" transform="translate(133 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-21" data-name="Rectangle 439" width="1" height="151" transform="translate(140 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-22" data-name="Rectangle 439" width="1" height="151" transform="translate(147 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-23" data-name="Rectangle 439" width="1" height="151" transform="translate(154 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-24" data-name="Rectangle 439" width="1" height="151" transform="translate(161 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-25" data-name="Rectangle 439" width="1" height="151" transform="translate(168 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-26" data-name="Rectangle 439" width="1" height="151" transform="translate(175 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-27" data-name="Rectangle 439" width="1" height="151" transform="translate(182 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-28" data-name="Rectangle 439" width="1" height="151" transform="translate(189 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-29" data-name="Rectangle 439" width="1" height="151" transform="translate(196 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-30" data-name="Rectangle 439" width="1" height="151" transform="translate(203 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-31" data-name="Rectangle 439" width="1" height="151" transform="translate(210 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-32" data-name="Rectangle 439" width="1" height="151" transform="translate(217 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-33" data-name="Rectangle 439" width="1" height="151" transform="translate(224 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-34" data-name="Rectangle 439" width="1" height="151" transform="translate(231 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-35" data-name="Rectangle 439" width="1" height="151" transform="translate(238 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-36" data-name="Rectangle 439" width="1" height="151" transform="translate(245 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-37" data-name="Rectangle 439" width="1" height="151" transform="translate(252 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-38" data-name="Rectangle 439" width="1" height="151" transform="translate(259 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-39" data-name="Rectangle 439" width="1" height="151" transform="translate(266 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-40" data-name="Rectangle 439" width="1" height="151" transform="translate(273 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-41" data-name="Rectangle 439" width="1" height="151" transform="translate(280 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-42" data-name="Rectangle 439" width="1" height="151" transform="translate(287 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-43" data-name="Rectangle 439" width="1" height="151" transform="translate(294 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-44" data-name="Rectangle 439" width="1" height="151" transform="translate(301 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-45" data-name="Rectangle 439" width="1" height="151" transform="translate(308 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-46" data-name="Rectangle 439" width="1" height="151" transform="translate(315 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-47" data-name="Rectangle 439" width="1" height="151" transform="translate(322 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-48" data-name="Rectangle 439" width="1" height="151" transform="translate(329 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-49" data-name="Rectangle 439" width="1" height="151" transform="translate(336 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-50" data-name="Rectangle 439" width="1" height="151" transform="translate(343 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-51" data-name="Rectangle 439" width="1" height="151" transform="translate(350 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-52" data-name="Rectangle 439" width="1" height="151" transform="translate(357 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-53" data-name="Rectangle 439" width="1" height="151" transform="translate(364 201.202)" fill="#abe5e9" opacity="0.5"/>
+      <rect id="Rectangle_439-54" data-name="Rectangle 439" width="1" height="151" transform="translate(371 201.202)" fill="#abe5e9" opacity="0.5"/>
+    </g>
+    <line id="dark_line" data-name="dark line" y2="154" transform="translate(375 201.5)" fill="none" stroke="#3d4648" stroke-width="1.5"/>
+    <line id="top_border" data-name="top border" x2="375" transform="translate(0 201)" fill="none" stroke="#d5dde5" stroke-width="1"/>
+    <line id="bottom_border" data-name="bottom border" x2="375" transform="translate(0 355)" fill="none" stroke="#d5dde5" stroke-width="1"/>
+  </g>
+</svg>
