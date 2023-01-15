@@ -83,21 +83,21 @@ export async function sendTstRecord(uri) {
                       data.append("session_id", storedSessionId);
 
 
-    // let xhr = new XMLHttpRequest();
-    // xhr.open("POST", url, true);
-    // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-    // xhr.setRequestHeader('Accept-Encoding', 'gzip, deflate, br')
-    // xhr.send(data);
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+    xhr.setRequestHeader('Accept-Encoding', 'gzip, deflate, br')
+    xhr.send(data);
 
-    // console.log(xhr);
+    console.log(xhr);
 
-    let res = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      },
-      body: data
-    });
+    // let res = await fetch(url, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data'
+    //   },
+    //   body: data
+    // });
 
       // const response = await axios({
       //   method: "post",
