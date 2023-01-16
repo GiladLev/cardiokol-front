@@ -196,3 +196,37 @@ export async function startTraining() {
 }
 
 
+/*******************************************************************************************************************************/
+/*********************************************************    get_adherence   *****************************************************/
+/*******************************************************************************************************************************/
+
+export async function getAdh(interval) {
+  const storedAlgoId = await AsyncStorage.getItem("algoId");
+
+  let url_adh = `http://${BASE_URL_IOS}:5001/api/get_adherence`;
+
+  if (Platform.OS === "android") {
+    url_adh = `http://${BASE_URL_ANDROID}:5001/api/get_adherence`;
+  }
+  console.log(url_adh);
+
+  var body = new FormData();
+  body.append("days_count", interval);
+  body.append("patient_algo_id", storedAlgoId);
+
+  console.log(body);
+
+  const response_adh = await axios.post(url_adh, body, {
+    headers: {
+      "content-type": "multipart/form-data",
+    },
+  });
+
+  console.log(response_adh.data);
+  return expenseObj;
+}
+
+export async function getAdherence(interval) {
+  return getAdh(interval);
+}
+
