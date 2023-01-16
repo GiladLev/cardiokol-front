@@ -178,11 +178,11 @@ export default function RecordScreen({
     console.log("Recording stopped and stored at", uri);
 
     if (mode == "Training") {
-      // const result = await sendTrainingRecord(uri);
-      setSend(true);
+      const result = await sendTrainingRecord(uri);
+      // setSend(true);
     } else {
-      // const result = await sendTestRecord(uri);
-      setSend(true);
+      const result = await sendTestRecord(uri);
+      // setSend(true);
     }
     navigation.replace(nextScreen);
   }

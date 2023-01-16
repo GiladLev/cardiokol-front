@@ -88,8 +88,7 @@ export async function verify(otp) {
   });
 
   console.log(response_adh.data);
-
-
+  console.log(response_adh.data.result);
 
   const expenseObj = {
     algoId: response.data.patient_algo_id,
@@ -97,7 +96,7 @@ export async function verify(otp) {
     name: response.data.name,
     gender: response.data.gender,
     status: response.data.status,
-    adherence: response_adh.data.details,
+    adherence: response_adh.data.result,
   };
   console.log(expenseObj);
 
@@ -222,8 +221,8 @@ export async function getAdh(interval) {
     },
   });
 
-  console.log(response_adh.data);
-  return expenseObj;
+  result = console.log(response_adh.data.result);
+  return result;
 }
 
 export async function getAdherence(interval) {
