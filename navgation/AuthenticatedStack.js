@@ -32,6 +32,8 @@ import FirstTestRecordSavedScreen from "../screens/TestFirst/FirstTestRecordSave
 import SaveTrainScreen from "../screens/Status/SaveTrainScreen";
 import SecondTrainigRecordingScreen from "../screens/Training/SecondTrainigRecordingScreen";
 import ErrorToSendToBack from "../screens/Error/ErrorToSendToBack";
+import WaveAnimation from "../components/Animation/WaveAnimation";
+import RecordScreen from "../components/record/RecordScreen";
 
 export default function AuthenticatedStack({ Stack }) {
   const authCtx = useContext(Context);
@@ -131,7 +133,7 @@ export default function AuthenticatedStack({ Stack }) {
         </Stack.Group>
       ) : (
         <Stack.Group>
-          <Stack.Screen name="Welcome" component={TestWelcomeScreen} />
+          <Stack.Screen name="Welcome" component={RecordScreen} />
           <Stack.Screen
             name="PrepareToRecord"
             component={PrepareToRecordScreen}

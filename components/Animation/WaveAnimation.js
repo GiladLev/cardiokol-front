@@ -6,7 +6,7 @@ import CoverWave from "../../assets/img/AnimationWave/coverWave.svg";
 import tw from "../../styles/tailwindConf";
 import Graph from "./Graph";
 import { Context } from "../../store/context";
-const WaveAnimation = ({ isSaveScreen }) => {
+const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
   const testCtx = useContext(Context);
   const [positionAnimation] = useState(new Animated.Value(isSaveScreen ? 1: 0));
   const screenWidth = Dimensions.get("screen").width;
@@ -44,6 +44,7 @@ const WaveAnimation = ({ isSaveScreen }) => {
         <Graph
           powerDecibel={testCtx.finishDecibel}
           isSaveScreen={isSaveScreen}
+          lastDecibel={lastDecibel}
         />
       </View>
 

@@ -48,7 +48,8 @@ function ContextProvider({ children }) {
   const [authGender, setAuthGender] = useState();
   const [testPlayingStatus, setTestPlayingStatus] = useState(true);
   const [testnumOfRecord, setTestNumOfRecord] = useState(0);
-  const [finishDecibel, setFinishDecibel] = useState([-160,-160,-160,-160,-160,-160, -160,-160,-160,-160,-160,-160]);
+  let fillTheArr = Array(24).fill().map(() => -160);
+  const [finishDecibel, setFinishDecibel] = useState(fillTheArr);
   
   function saveFinishDecibel(arrOfFinishDecibel) {
 

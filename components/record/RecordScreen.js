@@ -14,8 +14,6 @@ import Title from "../../components/ui/Title";
 import Paragraph from "../../components/ui/Paragraph";
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 import WaveAnimation from "../Animation/WaveAnimation";
-import useNoUsage from "../../hooks/NoUsage";
-import usePlaySound from "../../hooks/PlaySoundHook";
 import StatusVoice from "./StatusVoice";
 import FadeInView from "../Animation/FadeInView";
 
@@ -38,12 +36,13 @@ export default function RecordScreen({
   const [isHighVoice, setIsHighVoice] = useState(false);
   const [CountAhh, setCountAhh] = useState(0);
   const [send, setSend] = useState(false);
+  const [lastDecibel, setLastDecibel] = useState([-160,-160]);
   const playingStatus = testCtx.playingStatus;
   let timeout;
   let timeout15s;
   let timeout30s;
 
-  const [numSecond, setNumSecond] = useState(0);
+  const [numSecond, setNumSecond] = useState(2);
   useEffect(() => {
     timeout = setTimeout(
       () => {
@@ -116,7 +115,7 @@ export default function RecordScreen({
       if (metering < -50 && isRecord) {
         setCountAhh(CountAhh + 1);
       }
-      if (!isFirst && numSecond < 10) {
+      if (!isFirst && numSecond < 24) {
         const newPowerDecibel = testCtx.finishDecibel;
         newPowerDecibel[numSecond] = metering;
         // setPowerDecibel(newPowerDecibel)
@@ -128,7 +127,7 @@ export default function RecordScreen({
   }, [metering]);
 
   useEffect(() => {
-    if (CountAhh > 8) {
+    if (CountAhh > 12) {
       navigation.replace("VadFalse");
     }
   }, [CountAhh]);
@@ -156,11 +155,12 @@ export default function RecordScreen({
         ...Audio.RecordingOptionsPresets.HIGH_QUALITY,
         isMeteringEnabled: true,
       });
-      recording.setProgressUpdateInterval(50)
+      recording.setProgressUpdateInterval(250)
       recording.setOnRecordingStatusUpdate((status) => {
-        console.log("metering:", status.metering);
-        console.log("duration in milisec:", status.durationMillis);
+        // console.log("metering:", status.metering);
+        // console.log("duration in milisec:", status.durationMillis);
         setMetering(status.metering);
+        setLastDecibel((lastDecibel)=>([...lastDecibel, status.metering]))
         setDurationMillis(status.durationMillis);
       });
 
@@ -212,7 +212,7 @@ export default function RecordScreen({
             ) : null}
           </View>
           {isRecord ? (
-            <WaveAnimation />
+            <WaveAnimation lastDecibel={lastDecibel} />
           ) : (
             <Image
               style={tw`flex-1 w-full`}

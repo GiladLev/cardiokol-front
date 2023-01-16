@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { Context } from "../../store/context";
 
 const Graph = (props) => {
-  const { powerDecibel } = props;
+  const { powerDecibel, lastDecibel } = props;
+
   const DecibelsValue = useContext(Context).finishDecibel;
   const [allDecibels, setAllDecibels] = useState(powerDecibel);
   const [minDecibels] = useState(-60)
@@ -23,41 +24,35 @@ const Graph = (props) => {
     setheight(height-60);
   }
   const SetPlace = (place) => {
-    return (width / 9) * place;
+    return (width / 16) * place;
   };
 
   // Filtering the information to measure a second and enter it into the structure
   const [points, setPoints] = useState([]);
   useEffect(() => {
+    const newPoints = DecibelsValue.map((value, index)=> (index === 0 || index === 1 ? [SetPlace(index), convertDecibels(-160)] : [SetPlace(index), convertDecibels(value)]))
 
+    
     setPoints([
-      [0, 0],
-      [SetPlace(0), convertDecibels(-160)], // 1
-      [SetPlace(1), convertDecibels(DecibelsValue[0])], // 2
-      [SetPlace(2), convertDecibels(DecibelsValue[1])], //3
-      [SetPlace(3), convertDecibels(DecibelsValue[2])], //4
-      [SetPlace(4), convertDecibels(DecibelsValue[3])], //5
-      [SetPlace(5), convertDecibels(DecibelsValue[4])], //6
-      [SetPlace(6), convertDecibels(DecibelsValue[5])], //7
-      [SetPlace(7), convertDecibels(DecibelsValue[6])], //8
-      [width, convertDecibels(DecibelsValue[7])], //9
-      [width, 0],
+      [0, 0], // starting point 0
+      ...newPoints, 
+      [width, 0], // ending point 25
+
     ]);
   }, [width]);
 
 
   const FilteringData = (arrOfDecibel) => {
-    // const measuresOneSec = arrOfDecibel.filter((e, index) => {
-    //   return index % 2 !== 0;
-    // });
+
     const newPoints = points.map((point, index) => {
-      return index === 0 || index === 1 || index === 2 || index === 10
+      return index === 0 || index === 25
         ? point
-        : [point[0], convertDecibels(arrOfDecibel[index - 2])];
+        : [point[0], convertDecibels(arrOfDecibel[index])];
     });
 
     setPoints(newPoints);
   };
+
   useEffect(() => {
     setAllDecibels(powerDecibel);
     FilteringData(allDecibels);
@@ -65,7 +60,8 @@ const Graph = (props) => {
 
   // Convert decibels to graphic representation
   const convertDecibels = (decibel) => {
-    if (decibel < minDecibels) { 
+    if (decibel < minDecibels || decibel == undefined) {
+ 
       return height;
     } else if (decibel > maxDecibels) { 
       return 1/4*height;
