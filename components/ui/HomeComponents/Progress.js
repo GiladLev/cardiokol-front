@@ -1,12 +1,23 @@
 import { View, Text, Pressable } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import tw from "../../../styles/tailwindConf";
 import Title from "../Title";
 import DayCircle from "./DayCircle";
 import { FlatList } from "react-native";
 import Paragraph from "../Paragraph";
+import { getAdherence } from "../../../util/auth";
 
 const Progress = () => {
+  const [dates, setDates] = useState([]);
+
+  useEffect(() => {
+    const res= getAdherence(7)
+    setDates(res)
+    console.log('====================================');
+    console.log(res);
+    console.log('====================================');
+  }, [])
+  
   const d = new Date();
   let day = d.getDay();
   const data = [
