@@ -133,7 +133,7 @@ export default function AuthenticatedStack({ Stack }) {
         </Stack.Group>
       ) : (
         <Stack.Group>
-          <Stack.Screen name="Welcome" component={RecordScreen} />
+          <Stack.Screen name="Welcome" component={TestWelcomeScreen} />
           <Stack.Screen
             name="PrepareToRecord"
             component={PrepareToRecordScreen}

@@ -66,12 +66,38 @@ export async function verify(otp) {
 
   console.log(response.data);
 
+  const algo_id = parseInt(response.data.patient_algo_id);
+  console.log(algo_id);
+  let url_adh = `http://${BASE_URL_IOS}:5001/api/get_adherence`;
+
+  if (Platform.OS === "android") {
+    url_adh = `http://${BASE_URL_ANDROID}:5001/api/get_adherence`;
+  }
+  console.log(url_adh);
+
+  var body = new FormData();
+  body.append("days_count", 7);
+  body.append("patient_algo_id", algo_id);
+
+  console.log(body);
+
+  const response_adh = await axios.post(url_adh, body, {
+    headers: {
+      "content-type": "multipart/form-data",
+    },
+  });
+
+  console.log(response_adh.data);
+
+
+
   const expenseObj = {
     algoId: response.data.patient_algo_id,
     token: response.data.access_token,
     name: response.data.name,
     gender: response.data.gender,
     status: response.data.status,
+    adherence: response_adh.data.details,
   };
   console.log(expenseObj);
 
@@ -90,7 +116,7 @@ export async function resend() {
   let url = `http://${BASE_URL_IOS}:5001/api/resend_otp`;
 
   if (Platform.OS === "android") {
-    url = `http:/${BASE_URL_ANDROID}:5001/api/resend_otp`;
+    url = `http://${BASE_URL_ANDROID}:5001/api/resend_otp`;
   }
 
   const storedId = await AsyncStorage.getItem("id");
