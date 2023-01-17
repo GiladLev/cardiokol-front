@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { Context } from "../../store/context";
 
 const Graph = (props) => {
-  const { powerDecibel } = props;
+  const { powerDecibel,isSaveScreen } = props;
   const DecibelsValue = useContext(Context).finishDecibel;
   const [allDecibels, setAllDecibels] = useState(powerDecibel);
   const [minDecibels] = useState(-60)
@@ -23,13 +23,13 @@ const Graph = (props) => {
     setheight(height-60);
   }
   const SetPlace = (place) => {
-    return (width / 10) * place;
+    return place === 9 ? width : (width / 10) * place;
   };
 
   // Filtering the information to measure a second and enter it into the structure
   const [points, setPoints] = useState([]);
   useEffect(() => {
-    const newPoints = DecibelsValue.slice(0,-2).map((value, index)=> (index === 0 || index === 1 ? [SetPlace(index), convertDecibels(-160)] : [SetPlace(index), convertDecibels(value)]))
+    const newPoints = DecibelsValue.slice(isSaveScreen ? 1 : 0 ,isSaveScreen ? -1 : -2).map((value, index)=> (index === 0 || index === 1 ? [SetPlace(index), convertDecibels(-160)] : [SetPlace(index), convertDecibels(value)]))
 
     
     setPoints([

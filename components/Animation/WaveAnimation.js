@@ -44,6 +44,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
         <Graph
           powerDecibel={testCtx.finishDecibel}
           lastDecibel={lastDecibel}
+          isSaveScreen={isSaveScreen}
         />
       </View>
 
