@@ -174,6 +174,11 @@ export default function RecordScreen({
 
   async function stopRecording() {
     console.log("Stopping recording...");
+    setRecording(undefined);
+    await recording.stopAndUnloadAsync();
+    await Audio.setAudioModeAsync({
+      allowsRecordingIOS: false,
+    });
     const uri = await recording?.getURI();
     console.log("Recording stopped and stored at", uri);
 

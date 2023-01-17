@@ -221,8 +221,13 @@ export async function getAdh(interval) {
     },
   });
 
-  result = console.log(response_adh.data.result);
-  return result;
+  console.log(response_adh.data.result);
+
+  const expenseObj = {
+    adh: response_adh.data.result
+  };
+  console.log(expenseObj);
+  return expenseObj;
 }
 
 export async function getAdherence(interval) {
