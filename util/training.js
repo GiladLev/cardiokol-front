@@ -146,15 +146,15 @@ export async function sendECG() {
 
   const storedAlgoId = await AsyncStorage.getItem("algoId");
   const storedPatientId = await AsyncStorage.getItem("id");
-  console.log(storedAlgoId)
-  console.log(storedPatientId)
-
+  const storedSessionId = await AsyncStorage.getItem("sessionId");
+  const storedApproachtId = await AsyncStorage.getItem("approachId");
 
 
   var body = new FormData();
   body.append("patient_algo_id", storedAlgoId);
   body.append("patient_id", storedPatientId);
-
+  body.append("session_id", storedSessionId);
+  body.append("approach_id", storedApproachtId);
   const response = await axios.post(url, body, {
     headers: {
       "Content-Type": "multipart/form-data",
@@ -163,12 +163,7 @@ export async function sendECG() {
 
   console.log(response.data);
 
-  const expenseObj = {
-    approachId: response.data.approach_id,
-    sessionId: response.data.session_id,
-  };
-  console.log(expenseObj);
-  return expenseObj;
+  return "Done";
 }
 
 export async function sendECGRow() {
