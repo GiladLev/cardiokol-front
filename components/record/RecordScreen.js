@@ -115,14 +115,11 @@ export default function RecordScreen({
       if (metering < -50 && isRecord) {
         setCountAhh(CountAhh + 1);
       }
-      if (!isFirst && numSecond < 12) {
+      if (!isFirst && numSecond < 11) {
         const newPowerDecibel = testCtx.finishDecibel;
         newPowerDecibel[numSecond] = metering;
         // setPowerDecibel(newPowerDecibel)
         testCtx.saveFinishDecibel(newPowerDecibel);
-        console.log('====================================');
-        console.log(newPowerDecibel);
-        console.log('====================================');
         setNumSecond(numSecond + 1);
       }
     }
@@ -158,7 +155,7 @@ export default function RecordScreen({
         ...Audio.RecordingOptionsPresets.HIGH_QUALITY,
         isMeteringEnabled: true,
       });
-      recording.setProgressUpdateInterval(250)
+      // recording.setProgressUpdateInterval(500)
       recording.setOnRecordingStatusUpdate((status) => {
         // console.log("metering:", status.metering);
         // console.log("duration in milisec:", status.durationMillis);

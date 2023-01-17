@@ -2,7 +2,7 @@
   "expo": {
     "name": "CardioKol",
     "slug": "CardioKol",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -23,7 +23,7 @@
       "buildNumber": "3"
     },
     "android": {
-      "versionCode": 4,
+      "versionCode": 4.1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/splash.png",
         "backgroundColor": "#FFFFFF"

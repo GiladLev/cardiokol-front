@@ -60,8 +60,8 @@ function ContextProvider({ children }) {
   }
   
   function saveFinishDecibel(arrOfFinishDecibel) {
-
     setFinishDecibel(arrOfFinishDecibel);
+    console.log(finishDecibel);
   }
   function saveNumOfRecord(number) {
     setTestNumOfRecord(number);

@@ -19,7 +19,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
   const startAnimation = () => {
     Animated.timing(positionAnimation, {
       toValue: 1,
-      duration: 6500,
+      duration: 7000,
       useNativeDriver: false,
     }).start();
   };
