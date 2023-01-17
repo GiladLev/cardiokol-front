@@ -74,7 +74,7 @@ export default function Root() {
 
     async function fetchAdherence() {
       const storedAdherence = await AsyncStorage.getItem("adherenceWeek");
-      console.log(storedAdherence);
+      // console.log(storedAdherence);
       authCtx.saveAdherenceWeek(storedAdherence);
     }
     
