@@ -6,10 +6,12 @@ import DayCircle from "./DayCircle";
 import Paragraph from "../Paragraph";
 import { getAdherence } from "../../../util/auth";
 import { Context } from "../../../store/context";
+import { useNavigation } from "@react-navigation/native";
+
 const Progress = () => {
   const authCtx = useContext(Context);
   const [datesCheck, setDatesCheck] = useState(null);
-
+  const navigation = useNavigation();
   const d = new Date();
   let day = d.getDay();
 
@@ -90,6 +92,9 @@ const Progress = () => {
 
         <Pressable
           style={tw`my-3 bg-secondary w-90% h-10 rounded-full flex justify-center items-center `}
+          onPress={() => {
+            navigation.navigate("Calendar");
+          }}
         >
           <Paragraph Style={`text-white`}>לכל המידע שלי</Paragraph>
         </Pressable>

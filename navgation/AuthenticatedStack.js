@@ -34,6 +34,7 @@ import SecondTrainigRecordingScreen from "../screens/Training/SecondTrainigRecor
 import ErrorToSendToBack from "../screens/Error/ErrorToSendToBack";
 import WaveAnimation from "../components/Animation/WaveAnimation";
 import RecordScreen from "../components/record/RecordScreen";
+import CalendarScreen from "../screens/Welcome/CalendarScreen";
 
 export default function AuthenticatedStack({ Stack }) {
   const authCtx = useContext(Context);
@@ -56,6 +57,7 @@ export default function AuthenticatedStack({ Stack }) {
           }}
         >
           <Stack.Screen name="Welcome" component={TrainingWelcomeScreen} />
+          <Stack.Screen name="Calendar" component={CalendarScreen} />
           <Stack.Screen
             name="PrepareToRecord"
             component={PrepareToTrainingScreen}
@@ -134,6 +136,7 @@ export default function AuthenticatedStack({ Stack }) {
       ) : (
         <Stack.Group>
           <Stack.Screen name="Welcome" component={TestWelcomeScreen} />
+          <Stack.Screen name="Calendar" component={CalendarScreen} />
           <Stack.Screen
             name="PrepareToRecord"
             component={PrepareToRecordScreen}
