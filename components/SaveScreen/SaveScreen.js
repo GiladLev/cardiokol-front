@@ -73,7 +73,7 @@ function SaveScreen({
 
   function continueHandler() {
 
-    recordingNumber === 5 ? checkValidVoice() : navigation.replace(nextScreen);
+    recordingNumber === 2 ? checkValidVoice() : navigation.replace(nextScreen);
 
   }
 
