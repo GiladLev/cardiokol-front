@@ -127,7 +127,7 @@ export default function RecordScreen({
   }, [metering]);
 
   useEffect(() => {
-    if (CountAhh > 3) {
+    if (CountAhh > 2) {
       navigation.replace("VadFalse");
     }
   }, [CountAhh]);
