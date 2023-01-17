@@ -1,18 +1,22 @@
 import { View, Text, Pressable } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import tw from "../../../styles/tailwindConf";
 import Title from "../Title";
 import DayCircle from "./DayCircle";
 import { FlatList } from "react-native";
 import Paragraph from "../Paragraph";
-// import { getAdherence } from "../../../util/auth"
-
+import { getAdherence } from "../../../util/auth"
+import { Context } from "../../../store/context";
 const Progress = () => {
 
+  const authCtx = useContext(Context);
+  const res = authCtx.adherenceWeek;
+  console.log("========================")
+  console.log(res)
   //  useEffect(() => {
-  //   const res = getAdh(7)
+  //   const res = authCtx.adherenceWeek;
   //   console.log("========================")
-  //   console.log(res.adh)
+  //   console.log(res)
   // }, [])
 
 

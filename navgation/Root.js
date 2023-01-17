@@ -73,10 +73,10 @@ export default function Root() {
     fetchPlayingStatus();
 
     async function fetchAdherence() {
-      const storedfetchAdherence = await AsyncStorage.getItem("adherenceWeek");
-      authCtx.saveAdherenceWeek(storedfetchAdherence);
+      const storedAdherence = await AsyncStorage.getItem("adherenceWeek");
+      console.log(storedAdherence);
+      authCtx.saveAdherenceWeek(storedAdherence);
     }
-    
     
     fetchAdherence();
 
