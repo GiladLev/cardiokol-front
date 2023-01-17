@@ -11,12 +11,10 @@ import { SafeAreaView } from "react-native";
 import BottomNavBar from "../../components/ui/HomeComponents/BottomNavBar";
 import Information from "../../components/ui/HomeComponents/Information";
 import MedicalRecommend from "../../components/ui/HomeComponents/MedicalRecommend";
-import IconButton from "../../components/ui/IconButton";
 import Progress from "../../components/ui/HomeComponents/Progress";
 import { Audio } from "expo-av";
 import Setting from "../../assets/img/Welocome-images/settings.svg";
 import Help from "../../assets/img/Welocome-images/help.svg";
-import { useEffect } from "react";
 function TestWelcomeScreen() {
   const navigation = useNavigation();
   

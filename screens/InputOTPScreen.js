@@ -81,12 +81,14 @@ function InputOTPScreen() {
       try {
         const result = await verifyOtp(val);
         console.log(result);
+        console.log(result.adherence);
 
         authCtx.authenticate(result.token);
         authCtx.saveAlgoId(result.algoId);
         authCtx.saveName(result.name);
         authCtx.saveGender(result.gender);
         authCtx.saveTrainingStatus(result.status);
+        authCtx.saveAdherenceWeek(result.adherence);
 
         if (result.token != "") {
         } else {

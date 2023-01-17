@@ -70,7 +70,6 @@ export async function sendTstRecord(uri) {
 
   if (Platform.OS === "android") {
     url = `http://${BASE_URL_ANDROID}:5001/api/send_test_wav`;
-    // url = `http://10.0.2.2:5001/api/send_test_wav`;
 
   var data = new FormData();
   data.append("wav", {
@@ -82,30 +81,19 @@ export async function sendTstRecord(uri) {
                       data.append("approach_id", storedApproachId);
                       data.append("session_id", storedSessionId);
 
-
+  // let response = await new Promise(resolve => {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-    xhr.setRequestHeader('Accept-Encoding', 'gzip, deflate, br')
+    xhr.setRequestHeader('Accept-Encoding', 'gzip, deflate, br');
+    // xhr.onload = function() {
+    //   resolve(xhr.response);
+    // };
+
     xhr.send(data);
 
     console.log(xhr);
-
-    // let res = await fetch(url, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data'
-    //   },
-    //   body: data
-    // });
-
-      // const response = await axios({
-      //   method: "post",
-      //   url: url,
-      //   files: data,
-      //   mimetype: "multipart/form-data",
-      //   headers: { "Content-Type": "multipart/form-data" },
-      // });
+  // })
 
     return "done";
   }

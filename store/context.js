@@ -17,6 +17,7 @@ export const Context = createContext({
   playingStatus: true,
   numOfRecord: 0,
   finishDecibel: [-160,-160,-160,-160,-160,-160],
+  adherenceWeek: null,
   saveNumOfRecord: (number) =>{},
   saveId: (id) => {},
   saveAlgoId: (algoId) => {},
@@ -32,6 +33,7 @@ export const Context = createContext({
   saveGender: (gender) => {},
   savePlayingStatus: (playingStatus) => {},
   saveFinishDecibel: (finishDecibel) => {},
+  saveAdherenceWeek: (adherenceWeek) => {},
 });
 
 function ContextProvider({ children }) {
@@ -46,10 +48,16 @@ function ContextProvider({ children }) {
   const [authTrainingStatus, setAuthTrainingStatus] = useState();
   const [authName, setAuthName] = useState();
   const [authGender, setAuthGender] = useState();
+  const [authAdherenceWeek, setAuthAdherenceWeek] = useState();
   const [testPlayingStatus, setTestPlayingStatus] = useState(true);
   const [testnumOfRecord, setTestNumOfRecord] = useState(0);
   let fillTheArr = Array(24).fill().map(() => -160);
   const [finishDecibel, setFinishDecibel] = useState(fillTheArr);
+  
+  function saveAdherenceWeek(adherenceWeek) {
+    setAuthAdherenceWeek(adherenceWeek);
+    adherenceWeek && AsyncStorage.setItem('adherenceWeek', adherenceWeek);
+  }
   
   function saveFinishDecibel(arrOfFinishDecibel) {
 
@@ -156,7 +164,9 @@ function ContextProvider({ children }) {
     numOfRecord: testnumOfRecord,
     saveNumOfRecord: saveNumOfRecord,
     saveFinishDecibel: saveFinishDecibel,
-    finishDecibel: finishDecibel
+    finishDecibel: finishDecibel,
+    adherenceWeek: authAdherenceWeek,
+    saveAdherenceWeek: saveAdherenceWeek
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

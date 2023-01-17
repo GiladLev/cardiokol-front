@@ -9,7 +9,7 @@ import Title from "../Title";
 const Information = () => {
   return (
     <View style={tw`w-full h-90 bg-white pr-15 relative my-5`}>
-      {/* top title */}
+
       <View style={tw`h-14 w-full flex-row items-center flex justify-between`}>
         <View style={tw`flex-row px-2 items-center`}>
           <More width={13} height={13} style={tw`px-5`} />

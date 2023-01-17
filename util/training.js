@@ -104,6 +104,8 @@ export async function sendTrnRecord(uri) {
      
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
+    xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+    xhr.setRequestHeader('Accept-Encoding', 'gzip, deflate, br');
     xhr.send(data);
     console.log(xhr);
     return "done";

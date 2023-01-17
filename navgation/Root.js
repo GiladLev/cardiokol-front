@@ -68,8 +68,17 @@ export default function Root() {
       const storedPlayingStatus = await AsyncStorage.getItem("playingStatus");
       authCtx.savePlayingStatus(Boolean(storedPlayingStatus));
     }
+
     
     fetchPlayingStatus();
+
+    async function fetchAdherence() {
+      const storedAdherence = await AsyncStorage.getItem("adherenceWeek");
+      // console.log(storedAdherence);
+      authCtx.saveAdherenceWeek(storedAdherence);
+    }
+    
+    fetchAdherence();
 
     async function fetchToken() {
       const storedToken = await AsyncStorage.getItem("token");

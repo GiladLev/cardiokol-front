@@ -1,33 +1,32 @@
 import { View, Text, Pressable } from "react-native";
-import React, { useEffect, useState } from "react";
+
+import React, { useEffect, useContext, useState } from "react";
+
 import tw from "../../../styles/tailwindConf";
 import Title from "../Title";
 import DayCircle from "./DayCircle";
-import { FlatList } from "react-native";
 import Paragraph from "../Paragraph";
 import { getAdherence } from "../../../util/auth";
 
-const Progress = () => {
-  const [dates, setDates] = useState([]);
+import { Context } from "../../../store/context";
+import { useNavigation } from "@react-navigation/native";
 
-  useEffect(() => {
-    const res= getAdherence(7)
-    setDates(res)
-    console.log('====================================');
-    console.log(res);
-    console.log('====================================');
-  }, [])
-  
+const Progress = () => {
+  const authCtx = useContext(Context);
+  const [datesCheck, setDatesCheck] = useState(null);
+  const navigation = useNavigation();
+
   const d = new Date();
   let day = d.getDay();
+
   const data = [
     {
       day: "א",
-      check: true,
+      check: false,
     },
     {
       day: "ב",
-      check: true,
+      check: false,
     },
     {
       day: "ג",
@@ -35,45 +34,75 @@ const Progress = () => {
     },
     {
       day: "ד",
-      check: true,
+      check: false,
     },
     {
       day: "ה",
-      check: true,
+      check: false,
     },
     {
       day: "ו",
-      check: true,
+      check: false,
     },
     {
       day: "ש",
       check: false,
     },
   ];
+  const [date, setDate] = useState(data);
+
+  const getDates = async () => {
+    const dates = await (await getAdherence(day)).adh;
+
+    setDatesCheck(JSON.parse(dates));
+  };
+
+  useEffect(() => {
+    getDates();
+  }, []);
+  useEffect(() => {
+    if (datesCheck) {
+      datesCheck.map((item, index) => {
+        if (item.s_count > 0) {
+          data[index].check = true;
+        }
+      });
+
+      setDate(data);
+    }
+  }, [datesCheck]);
+
   return (
     <View style={tw`w-full h-56  `}>
-      <View style={tw`flex-1 m-5 p-4 bg-white rounded-xl flex justify-between items-center`}>
+      <View
+        style={tw`flex-1 m-5 p-4 bg-white rounded-xl flex justify-between items-center`}
+      >
         <View style={tw`flex items-end w-full`}>
-
-        <Title>התקדמות השבועית שלך</Title>
+          <Title>התקדמות השבועית שלך</Title>
         </View>
         <View style={tw`mx-4 w-full h-0.5 bg-background rounded-full`} />
         <View
           style={tw`my-4 h-9 w-full flex-row-reverse flex justify-between items-center`}
         >
-          {data.map((item,index) => ( index == day ? 
-            <DayCircle item={item} isCurrentDay = {true} key={item.day} /> : <DayCircle item={item} key={item.day} />
-          ))}
+          {date.map((item, index) =>
+            index == day ? (
+              <DayCircle item={item} isCurrentDay={true} key={item.day} />
+            ) : (
+              <DayCircle item={item} key={item.day} />
+            )
+          )}
         </View>
         <View style={tw`mx-4 w-full h-0.5 bg-background rounded-full`} />
-      
-      <Pressable
+
+        <Pressable
           style={tw`my-3 bg-secondary w-90% h-10 rounded-full flex justify-center items-center `}
+          onPress={() => {
+            navigation.navigate("Calendar");
+          }}
         >
           <Paragraph Style={`text-white`}>לכל המידע שלי</Paragraph>
         </Pressable>
       </View>
-
     </View>
   );
 };
