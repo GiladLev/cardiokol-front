@@ -23,13 +23,13 @@ const Graph = (props) => {
     setheight(height-60);
   }
   const SetPlace = (place) => {
-    return (width / 12) * place;
+    return (width / 10) * place;
   };
 
   // Filtering the information to measure a second and enter it into the structure
   const [points, setPoints] = useState([]);
   useEffect(() => {
-    const newPoints = DecibelsValue.map((value, index)=> (index === 0 || index === 1 ? [SetPlace(index), convertDecibels(-160)] : [SetPlace(index), convertDecibels(value)]))
+    const newPoints = DecibelsValue.slice(0,-2).map((value, index)=> (index === 0 || index === 1 ? [SetPlace(index), convertDecibels(-160)] : [SetPlace(index), convertDecibels(value)]))
 
     
     setPoints([
@@ -44,7 +44,7 @@ const Graph = (props) => {
   const FilteringData = (arrOfDecibel) => {
 
     const newPoints = points.map((point, index) => {
-      return index === 0 || index === 13
+      return index === 0 || index === 11
         ? point
         : [point[0], convertDecibels(arrOfDecibel[index])];
     });
