@@ -8,6 +8,8 @@ import Setting from "../../assets/img/Welocome-images/settings.svg";
 import Help from "../../assets/img/Welocome-images/help.svg";
 import Paragraph from "../../components/ui/Paragraph";
 import BottomNavBar from "../../components/ui/HomeComponents/BottomNavBar";
+import CalendarTemplate from "../../components/calendar/CalendarProgress";
+import Title from "../../components/ui/Title";
 const CalendarScreen = () => {
 
 
@@ -32,8 +34,8 @@ const CalendarScreen = () => {
       </View>
     <View style={tw` flex-1 items-center flex justify-center`}>
 
-      <View style={tw`w-90% h-80% bg-white p-5 rounded-3xl items-center flex justify-between`}>
-        
+      <View style={tw`w-90% h-65% bg-white p-5 rounded-3xl items-center flex justify-between`}>
+        <CalendarTemplate/>
       </View>
     </View>
 

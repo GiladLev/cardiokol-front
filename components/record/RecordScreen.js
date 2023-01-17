@@ -115,11 +115,14 @@ export default function RecordScreen({
       if (metering < -50 && isRecord) {
         setCountAhh(CountAhh + 1);
       }
-      if (!isFirst && numSecond < 24) {
+      if (!isFirst && numSecond < 12) {
         const newPowerDecibel = testCtx.finishDecibel;
         newPowerDecibel[numSecond] = metering;
         // setPowerDecibel(newPowerDecibel)
         testCtx.saveFinishDecibel(newPowerDecibel);
+        console.log('====================================');
+        console.log(newPowerDecibel);
+        console.log('====================================');
         setNumSecond(numSecond + 1);
       }
     }
@@ -127,7 +130,7 @@ export default function RecordScreen({
   }, [metering]);
 
   useEffect(() => {
-    if (CountAhh > 12) {
+    if (CountAhh > 3) {
       navigation.replace("VadFalse");
     }
   }, [CountAhh]);
@@ -217,7 +220,7 @@ export default function RecordScreen({
             ) : null}
           </View>
           {isRecord ? (
-            <WaveAnimation lastDecibel={lastDecibel} />
+            <WaveAnimation />
           ) : (
             <Image
               style={tw`flex-1 w-full`}

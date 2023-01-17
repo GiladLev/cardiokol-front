@@ -63,9 +63,13 @@ const Progress = () => {
   useEffect(() => {
     if (datesCheck) {
       datesCheck.map((item, index) => {
-        if (item.s_count > 0) {
+        if (item.s_count === 1) {
+          data[index].check = "half";
+        }
+        else if (item.s_count >= 2) {
           data[index].check = true;
         }
+        
       });
 
       setDate(data);

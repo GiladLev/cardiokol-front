@@ -19,7 +19,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
   const startAnimation = () => {
     Animated.timing(positionAnimation, {
       toValue: 1,
-      duration: 6000,
+      duration: 6500,
       useNativeDriver: false,
     }).start();
   };
@@ -43,7 +43,6 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
         </View>
         <Graph
           powerDecibel={testCtx.finishDecibel}
-          isSaveScreen={isSaveScreen}
           lastDecibel={lastDecibel}
         />
       </View>

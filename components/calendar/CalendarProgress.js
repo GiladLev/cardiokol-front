@@ -1,36 +1,55 @@
 import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import { Calendar } from "react-native-calendars";
+import tw from "../../styles/tailwindConf";
+import { getAdherence } from "../../util/auth";
+import Title from "../ui/Title";
 
 const CalendarTemplate = () => {
-  const [dates, setDates] = useState([]);
+  const [dates, setDate] = useState();
+  const [markedDates, setmMrkedDates] = useState({});
+
+  const getDates = async () => {
+    const newDates = await (await getAdherence(0)).adh;
+
+    setDate(JSON.parse(newDates));
+  };
 
   useEffect(() => {
-    setDates([]);
+    getDates();
   }, []);
+  useEffect(() => {
 
+    const newDates = {};
+    dates?.forEach((item) => {
+      if (item.s_count === 1) {
+        newDates[item.date] = {
+          marked: true,
+          selected: true,
+          selectedColor: "#AFD3D3",
+          dotColor: '#AFD3D3',
+          selectedTextColor: "black",
+        };
+      } else if (item.s_count >= 2) {
+        newDates[item.date] = {
+          marked: true,
+          selected: true,
+          selectedColor: "#219494",
+          dotColor: '#219494',
+          selectedTextColor: "white",
+          
+        };
+      }
+      else {
+        null
+      }
+    });
+    setmMrkedDates(newDates);
+  }, [dates]);
 
   return (
-    <View style={{ flex: 1, backgroundColor: "white" }}>
-      <Calendar
-        hideExtraDays={true}
-        markedDates={{
-          "2023-01-15": {
-            marked: true,
-            // dotColor: "red",
-            selected: true,
-            selectedColor: "green",
-            selectedTextColor: "white",
-          },
-          "2023-01-13": {
-            marked: true,
-            // dotColor: "red",
-            selected: true,
-            selectedColor: "green",
-            selectedTextColor: "white",
-          },
-        }}
-      />
+    <View style={tw`flex-1 items-center flex justify-center`}>
+      {dates ? <Calendar hideExtraDays={true} markedDates={markedDates} /> : <Title>טוען...</Title>}
     </View>
   );
 };

@@ -21,7 +21,8 @@ module.exports = {
         currentDay: '#8CD7DC',
         colorBorder: '#212D3933',
         recordCircle: "#212D390D" ,
-        errorColor: "#EF233C"
+        errorColor: "#EF233C",
+        half : "#AFD3D3"
       },
     },
   },
