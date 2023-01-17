@@ -1,10 +1,13 @@
 import { View, Text, Pressable } from "react-native";
+
 import React, { useEffect, useContext, useState } from "react";
+
 import tw from "../../../styles/tailwindConf";
 import Title from "../Title";
 import DayCircle from "./DayCircle";
 import Paragraph from "../Paragraph";
 import { getAdherence } from "../../../util/auth";
+
 import { Context } from "../../../store/context";
 import { useNavigation } from "@react-navigation/native";
 
@@ -12,6 +15,7 @@ const Progress = () => {
   const authCtx = useContext(Context);
   const [datesCheck, setDatesCheck] = useState(null);
   const navigation = useNavigation();
+
   const d = new Date();
   let day = d.getDay();
 
