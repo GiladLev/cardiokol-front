@@ -29,7 +29,7 @@ const MedicalRecommend = () => {
         <Title Style={"text-lg"}>שלנו מסבירים</Title>
         
         <Image
-          style = {tw`rounded-xl mt-2`}
+          style = {tw`rounded-xl mt-2 w-90% h-70%`}
           source={require("../../../assets/img/Welocome-images/ImageContent.png")}
         />
       </View>

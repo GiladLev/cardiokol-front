@@ -9,8 +9,8 @@ const Graph = (props) => {
   const { powerDecibel,isSaveScreen } = props;
   const DecibelsValue = useContext(Context).finishDecibel;
   const [allDecibels, setAllDecibels] = useState(powerDecibel);
-  const [minDecibels] = useState(-60)
-  const [maxDecibels] = useState(-15)
+  const [minDecibels] = useState(-30)
+  const [maxDecibels] = useState(-4)
   // Get the dimensions of the screenf
   const [width, setwidth] = useState(0);
   const [height, setheight] = useState(0);

@@ -9,7 +9,7 @@ const Button = ({ children, onPress, Style }) => {
   return (
     <Pressable
       onPress={onPress}
-      style={tw`bg-primary w-85 h-16 rounded-full flex justify-center items-center`}
+      style={tw`bg-primary w-90% h-16 rounded-full flex justify-center items-center`}
     >
       <Paragraph Style={`${Style} font-bold text-white text-xl`}>{children}</Paragraph>
     </Pressable>

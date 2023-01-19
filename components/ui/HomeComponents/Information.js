@@ -30,7 +30,9 @@ const Information = () => {
         <Title Style={"text-lg"}>איך לשמור על בריאות הלב</Title>
         
         <Image
-          style = {tw`rounded-xl mt-2`}
+          style = {tw`rounded-xl mt-2 w-90% h-75%`}
+
+
           source={require("../../../assets/img/Welocome-images/ImageContent.png")}
         />
       </View>

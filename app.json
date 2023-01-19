@@ -20,12 +20,12 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.softman.cardiokol",
-      "buildNumber": "3"
+      "buildNumber": "4"
     },
     "android": {
-      "versionCode": 4.1,
+      "versionCode": 5,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/splash.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "softman.CardioKol"

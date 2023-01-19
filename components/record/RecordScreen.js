@@ -66,6 +66,16 @@ export default function RecordScreen({
       clearTimeout(timeout);
       clearTimeout(timeout15s);
       clearTimeout(timeout30s);
+      const stopRecordingAndReset = async () => {
+        await recording?.stopAndUnloadAsync();
+        setRecording(null);
+      };
+      if (recording) {
+        console.log('====================================');
+        console.log("stopr");
+        console.log('====================================');
+        stopRecordingAndReset();
+      }
     };
   }, []);
 
@@ -86,6 +96,7 @@ export default function RecordScreen({
       return unsubscribe;
     }, [navigation, recording])
   );
+
 
   useEffect(() => {
     async function statusMetering() {
