@@ -36,11 +36,22 @@ export default function RecordScreen({
   const [isHighVoice, setIsHighVoice] = useState(false);
   const [CountAhh, setCountAhh] = useState(0);
   const [send, setSend] = useState(false);
-  const [lastDecibel, setLastDecibel] = useState([-160,-160]);
+  const [lastDecibel, setLastDecibel] = useState([-160, -160]);
   const playingStatus = testCtx.playingStatus;
   let timeout;
   let timeout15s;
   let timeout30s;
+
+  // waveAnimation
+  const SampleTimeMillis = 250;
+  const recordDuration = 6000;
+  const numOfSample = Math.round(recordDuration / SampleTimeMillis);
+  useEffect(() => {
+    const fillTheArr = Array(numOfSample)
+      .fill()
+      .map(() => -30);
+    testCtx.saveFinishDecibel(fillTheArr);
+  }, []);
 
   const [numSecond, setNumSecond] = useState(2);
   useEffect(() => {
@@ -71,9 +82,6 @@ export default function RecordScreen({
         setRecording(null);
       };
       if (recording) {
-        console.log('====================================');
-        console.log("stopr");
-        console.log('====================================');
         stopRecordingAndReset();
       }
     };
@@ -96,7 +104,6 @@ export default function RecordScreen({
       return unsubscribe;
     }, [navigation, recording])
   );
-
 
   useEffect(() => {
     async function statusMetering() {
@@ -126,7 +133,7 @@ export default function RecordScreen({
       if (metering < -50 && isRecord) {
         setCountAhh(CountAhh + 1);
       }
-      if (!isFirst && numSecond < 11) {
+      if (!isFirst && numSecond < numOfSample) {
         const newPowerDecibel = testCtx.finishDecibel;
         newPowerDecibel[numSecond] = metering;
         // setPowerDecibel(newPowerDecibel)
@@ -137,14 +144,14 @@ export default function RecordScreen({
     statusMetering();
   }, [metering]);
 
-  useEffect(() => {
-    if (CountAhh > 2) {
-      navigation.replace("VadFalse");
-    }
-  }, [CountAhh]);
+  // useEffect(() => {
+  //   if (CountAhh > 2) {
+  //     navigation.replace("VadFalse");
+  //   }
+  // }, [CountAhh]);
 
   useEffect(() => {
-    if (durationMillis > 6000 && !isFirst && !send) {
+    if (durationMillis > 6200 && !isFirst && !send) {
       console.log("stop record &&&&&&&&&&&&&&&&");
       setSend(true);
       stopRecording();
@@ -166,12 +173,12 @@ export default function RecordScreen({
         ...Audio.RecordingOptionsPresets.HIGH_QUALITY,
         isMeteringEnabled: true,
       });
-      // recording.setProgressUpdateInterval(500)
+      recording.setProgressUpdateInterval(SampleTimeMillis);
       recording.setOnRecordingStatusUpdate((status) => {
         // console.log("metering:", status.metering);
         // console.log("duration in milisec:", status.durationMillis);
         setMetering(status.metering);
-        setLastDecibel((lastDecibel)=>([...lastDecibel, status.metering]))
+        setLastDecibel((lastDecibel) => [...lastDecibel, status.metering]);
         setDurationMillis(status.durationMillis);
       });
 
@@ -227,14 +234,16 @@ export default function RecordScreen({
               />
             ) : null}
           </View>
-          {isRecord ? (
-            <WaveAnimation />
-          ) : (
-            <Image
-              style={tw`flex-1 w-full`}
-              source={require("../../assets/img/record-images/Breathing-loop.gif")}
-            />
-          )}
+          <View style={tw`flex-1.4`}>
+            {isRecord ? (
+              <WaveAnimation />
+            ) : (
+              <Image
+                style={tw`flex-1 w-full`}
+                source={require("../../assets/img/record-images/Breathing-loop.gif")}
+              />
+            )}
+          </View>
         </View>
 
         <View style={tw`flex-1 w-full items-center flex justify-center`}>
@@ -266,7 +275,9 @@ export default function RecordScreen({
                 strokeWidth={5}
                 onComplete={() => ({ delay: 2 })}
               >
-                {({ remainingTime }) => <Paragraph Style={"text-xl mt-1"}>{remainingTime}</Paragraph>}
+                {({ remainingTime }) => (
+                  <Paragraph Style={"text-xl mt-1"}>{remainingTime}</Paragraph>
+                )}
               </CountdownCircleTimer>
             )}
           </View>

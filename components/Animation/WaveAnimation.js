@@ -8,9 +8,22 @@ import Graph from "./Graph";
 import { Context } from "../../store/context";
 const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
   const testCtx = useContext(Context);
-  const [positionAnimation] = useState(new Animated.Value(isSaveScreen ? 1: 0));
+  const [positionAnimation] = useState(
+    new Animated.Value(isSaveScreen ? 1 : 0)
+  );
   const screenWidth = Dimensions.get("screen").width;
-  const screenHeight = Dimensions.get("screen").height;
+
+  // Get the dimensions of the screenf
+  const [width, setwidth] = useState(0);
+  const [height, setheight] = useState(0);
+  function handleLayout(event) {
+    const {
+      nativeEvent: { layout },
+    } = event;
+    const { width, height } = layout;
+    setwidth(width);
+    setheight(height);
+  }
 
   useEffect(() => {
     startAnimation();
@@ -25,35 +38,35 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
   };
 
   const imageStyle = {
+    flex: 1,
+
     position: "absolute",
     top: 0,
-    zIndex: 2,
+    zIndex: 99,
     left: positionAnimation.interpolate({
       inputRange: [0, 1],
-      outputRange: Platform.OS === 'ios' ? [0, screenWidth - 50] : [0, screenWidth - 20],
+      outputRange:
+        Platform.OS === "ios" ? [0, screenWidth - 50] : [0, screenWidth - 30],
     }),
   };
 
-
   return (
-    <View style={tw`flex-1`} >
-      <View style={tw`flex-1`}>
-        <View style={{ position: "absolute", top: 0, left: 0 }}>
-          <Wave width={screenWidth} />
+    <View style={tw`flex-1 relative py-2`} onLayout={handleLayout}>
+      <View style={tw`w-${width} h-${height} relative`}>
+        <View style={tw`absolute top-0 `}>
+          <Wave width={width} height={height} />
         </View>
         <Graph
           powerDecibel={testCtx.finishDecibel}
           lastDecibel={lastDecibel}
           isSaveScreen={isSaveScreen}
+          width={width}
+          height={height * 0.75}
         />
       </View>
-
-
-        <Animated.View style={imageStyle}>
-          <CoverWave width={screenWidth} />
-        </Animated.View>
-
-    
+      <Animated.View style={imageStyle}>
+        <CoverWave width={width} height={height} />
+      </Animated.View>
     </View>
   );
 };

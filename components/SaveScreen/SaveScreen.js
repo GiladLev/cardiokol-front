@@ -21,7 +21,6 @@ function SaveScreen({
   audio,
   img,
 }) {
-
   const testCtx = useContext(Context);
   const navigation = useNavigation();
   const numCheck =
@@ -31,8 +30,8 @@ function SaveScreen({
       ? [true, true, false]
       : [true, true, true];
   useEffect(() => {
-    testCtx.saveNumOfRecord(recordingNumber)
-    const timeout=setTimeout(() => {
+    testCtx.saveNumOfRecord(recordingNumber);
+    const timeout = setTimeout(() => {
       console.log("5 sec.");
       continueHandler();
     }, 5000);
@@ -62,43 +61,46 @@ function SaveScreen({
             ? navigation.replace("VowelFalse")
             : navigation.replace("ThirdRecording");
         }
-        
+
         console.log(result.message);
       }
     } catch (error) {
       console.log(error);
-      navigation.replace("ErrorToSendToBack")
+      navigation.replace("ErrorToSendToBack");
     }
   }
 
   function continueHandler() {
-
     recordingNumber === 2 ? checkValidVoice() : navigation.replace(nextScreen);
-
   }
 
   return (
     <View style={tw`w-full h-full bg-background`}>
-      <TopNav img={img} audio={audio} progress={progress} />
-      <View style={tw`flex-2 flex justify-center pb-5`}>
-        <View style={tw`flex-1`} />
-        <View style={tw`flex-1`}>
-          <WaveAnimation isSaveScreen={true}/>
-        </View>
-        <View style={tw`flex-1 items-center flex justify-center`}>
-          <Title Style={"text-xl"}>{recordingNumberTitle}</Title>
-          <Title Style={"text-xl"}>תודה</Title>
-        </View>
-        <View
-          style={tw`flex-1 flex-row-reverse flex justify-around items-center px-30`}
-        >
-          {numCheck.map((item, index) =>
-            item ? (
-              <CheckOff width={27} height={29} key={index} />
-            ) : (
-              <CheckoOn width={27} height={29} key={index} />
-            )
-          )}
+      <View>
+        <TopNav img={img} audio={audio} progress={progress} />
+      </View>
+      <View style={tw`flex-1`}>
+        <View style={tw`flex-2 flex justify-center pb-5`}>
+          <View style={tw`flex-1`} />
+          <View style={tw`flex-1.4`}>
+            <WaveAnimation isSaveScreen={true} />
+          </View>
+
+          <View style={tw`flex-1 items-center flex justify-center`}>
+            <Title Style={"text-xl"}>{recordingNumberTitle}</Title>
+            <Title Style={"text-xl"}>תודה</Title>
+          </View>
+          <View
+            style={tw`flex-1 flex-row-reverse flex justify-around items-center px-30`}
+          >
+            {numCheck.map((item, index) =>
+              item ? (
+                <CheckOff width={27} height={29} key={index} />
+              ) : (
+                <CheckoOn width={27} height={29} key={index} />
+              )
+            )}
+          </View>
         </View>
       </View>
     </View>

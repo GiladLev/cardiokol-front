@@ -51,7 +51,7 @@ function ContextProvider({ children }) {
   const [authAdherenceWeek, setAuthAdherenceWeek] = useState();
   const [testPlayingStatus, setTestPlayingStatus] = useState(true);
   const [testnumOfRecord, setTestNumOfRecord] = useState(0);
-  let fillTheArr = Array(12).fill().map(() => -160);
+  let fillTheArr = Array(24).fill().map(() => -30);
   const [finishDecibel, setFinishDecibel] = useState(fillTheArr);
   
   function saveAdherenceWeek(adherenceWeek) {
