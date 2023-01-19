@@ -8,7 +8,7 @@ const ThirdTestRecordingScreen = () => {
     <>
     <RecordScreen 
       img={<Heart width={65} height={50}/>} 
-      progress={"99% הושלמו"}
+      progress={"66% הושלמו"}
       audioMale={require("../../assets/audio/HE/MALE/ThirdTestRecordingMale.m4a")}
       audioFemale={require("../../assets/audio/HE/FEMALE/ThirdTestRecordingFemale.m4a")}
       nextScreen={"ThirdRecordSaved"}

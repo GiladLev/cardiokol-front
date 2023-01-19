@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, AppState } from "react-native";
 import Button from "../../components/ui/Button";
 import { Audio } from "expo-av";
 import { sendTestRecord } from "../../util/testing";
@@ -78,15 +78,15 @@ export default function RecordScreen({
       }
     };
   }, []);
-
+  const stopRecordingAndReset = async () => {
+    await recording?.stopAndUnloadAsync();
+    setRecording(null);
+  };
   useFocusEffect(
     useCallback(() => {
       const unsubscribe = navigation.addListener("beforeRemove", () => {
         // stop recording and save the audio to the media library when the screen is about to be removed
-        const stopRecordingAndReset = async () => {
-          await recording?.stopAndUnloadAsync();
-          setRecording(null);
-        };
+        
         if (recording) {
           stopRecordingAndReset();
         }
@@ -96,6 +96,12 @@ export default function RecordScreen({
       return unsubscribe;
     }, [navigation, recording])
   );
+
+  AppState.addEventListener('change', (state) => {
+    if (state === 'background') {
+      stopRecordingAndReset()
+    }
+  });
 
 
   useEffect(() => {
