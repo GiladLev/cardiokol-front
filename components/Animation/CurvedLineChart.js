@@ -15,9 +15,9 @@ function CurvedLineChart(props) {
   };
 // set Y scale
   const convertDecibels = (decibel) => {
-    if (decibel < minDecibels) {
+    if (decibel < minDecibels) { // -160
       return height;
-    } else if (decibel > maxDecibels) {
+    } else if (decibel > maxDecibels) { //4
       return 20;
     } else {
       const decibelValue = minDecibels - maxDecibels;
@@ -47,6 +47,7 @@ function CurvedLineChart(props) {
 
   useEffect(() => {
     updatePoints()
+
   }, [props])
   
 

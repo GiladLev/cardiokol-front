@@ -7,8 +7,8 @@ import { Context } from "../../store/context";
 
 const Graph = (props) => {
   const { powerDecibel, width, height } = props;
-  const [minDecibels] = useState(-100);
-  const [maxDecibels] = useState(-4)
+  const [minDecibels] = useState(-60);
+  const [maxDecibels] = useState(4)
   return (
     <View
       style={tw`w-full h-full pb-3`}

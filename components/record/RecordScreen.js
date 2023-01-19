@@ -43,17 +43,17 @@ export default function RecordScreen({
   let timeout30s;
 
   // waveAnimation
-  const SampleTimeMillis = 250;
+  const SampleTimeMillis = 100;
   const recordDuration = 6000;
   const numOfSample = Math.round(recordDuration / SampleTimeMillis);
   useEffect(() => {
     const fillTheArr = Array(numOfSample)
       .fill()
-      .map(() => -30);
+      .map(() => -170);
     testCtx.saveFinishDecibel(fillTheArr);
   }, []);
 
-  const [numSecond, setNumSecond] = useState(2);
+  const [numSecond, setNumSecond] = useState(0);
   useEffect(() => {
     timeout = setTimeout(
       () => {
@@ -135,14 +135,22 @@ export default function RecordScreen({
       }
       if (!isFirst && numSecond < numOfSample) {
         const newPowerDecibel = testCtx.finishDecibel;
-        newPowerDecibel[numSecond] = metering;
-        // setPowerDecibel(newPowerDecibel)
+        const index = Math.round(durationMillis / 100) 
+        console.log(index);
+        let index2 = numSecond;
+        while (index2 <= index){
+          newPowerDecibel[index2++] = metering
+          console.log(index2);
+        }
+
         testCtx.saveFinishDecibel(newPowerDecibel);
-        setNumSecond(numSecond + 1);
+        setNumSecond(index);
       }
     }
     statusMetering();
   }, [metering]);
+
+  
 
   // useEffect(() => {
   //   if (CountAhh > 2) {
@@ -151,7 +159,7 @@ export default function RecordScreen({
   // }, [CountAhh]);
 
   useEffect(() => {
-    if (durationMillis > 6200 && !isFirst && !send) {
+    if (durationMillis > 6000 && !isFirst && !send) {
       console.log("stop record &&&&&&&&&&&&&&&&");
       setSend(true);
       stopRecording();
@@ -178,7 +186,7 @@ export default function RecordScreen({
         // console.log("metering:", status.metering);
         // console.log("duration in milisec:", status.durationMillis);
         setMetering(status.metering);
-        setLastDecibel((lastDecibel) => [...lastDecibel, status.metering]);
+        // setLastDecibel((lastDecibel) => [...lastDecibel, status.metering]);
         setDurationMillis(status.durationMillis);
       });
 
@@ -236,7 +244,7 @@ export default function RecordScreen({
           </View>
           <View style={tw`flex-1.4`}>
             {isRecord ? (
-              <WaveAnimation />
+              <WaveAnimation numSecond={numSecond}/>
             ) : (
               <Image
                 style={tw`flex-1 w-full`}

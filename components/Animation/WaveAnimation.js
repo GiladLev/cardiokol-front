@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { View, Animated, Dimensions, Platform } from "react-native";
 import { useEffect } from "react";
 import Wave from "../../assets/img/AnimationWave/voiceRecordingWave.svg";
@@ -6,7 +6,7 @@ import CoverWave from "../../assets/img/AnimationWave/coverWave.svg";
 import tw from "../../styles/tailwindConf";
 import Graph from "./Graph";
 import { Context } from "../../store/context";
-const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
+const WaveAnimation = ({ isSaveScreen, lastDecibel, numSecond }) => {
   const testCtx = useContext(Context);
   const [positionAnimation] = useState(
     new Animated.Value(isSaveScreen ? 1 : 0)
@@ -32,7 +32,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
   const startAnimation = () => {
     Animated.timing(positionAnimation, {
       toValue: 1,
-      duration: 7000,
+      duration: 6000,
       useNativeDriver: false,
     }).start();
   };
@@ -41,12 +41,11 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
     flex: 1,
 
     position: "absolute",
-    top: 0,
+    top: 50,
     zIndex: 99,
     left: positionAnimation.interpolate({
       inputRange: [0, 1],
-      outputRange:
-        Platform.OS === "ios" ? [0, screenWidth - 50] : [0, screenWidth - 30],
+      outputRange: [0, screenWidth],
     }),
   };
 
