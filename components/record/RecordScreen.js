@@ -36,13 +36,24 @@ export default function RecordScreen({
   const [isHighVoice, setIsHighVoice] = useState(false);
   const [CountAhh, setCountAhh] = useState(0);
   const [send, setSend] = useState(false);
-  const [lastDecibel, setLastDecibel] = useState([-160,-160]);
+  const [lastDecibel, setLastDecibel] = useState([-160, -160]);
   const playingStatus = testCtx.playingStatus;
   let timeout;
   let timeout15s;
   let timeout30s;
 
-  const [numSecond, setNumSecond] = useState(2);
+  // waveAnimation
+  const SampleTimeMillis = 100;
+  const recordDuration = 6000;
+  const numOfSample = Math.round(recordDuration / SampleTimeMillis);
+  useEffect(() => {
+    const fillTheArr = Array(numOfSample)
+      .fill()
+      .map(() => -170);
+    testCtx.saveFinishDecibel(fillTheArr);
+  }, []);
+
+  const [numSecond, setNumSecond] = useState(0);
   useEffect(() => {
     timeout = setTimeout(
       () => {
@@ -71,9 +82,6 @@ export default function RecordScreen({
         setRecording(null);
       };
       if (recording) {
-        console.log('====================================');
-        console.log("stopr");
-        console.log('====================================');
         stopRecordingAndReset();
       }
     };
@@ -97,11 +105,13 @@ export default function RecordScreen({
     }, [navigation, recording])
   );
 
+
   AppState.addEventListener('change', (state) => {
     if (state === 'background') {
       stopRecordingAndReset()
     }
   });
+
 
 
   useEffect(() => {
@@ -132,22 +142,31 @@ export default function RecordScreen({
       if (metering < -50 && isRecord) {
         setCountAhh(CountAhh + 1);
       }
-      if (!isFirst && numSecond < 11) {
+      if (!isFirst && numSecond < numOfSample) {
         const newPowerDecibel = testCtx.finishDecibel;
-        newPowerDecibel[numSecond] = metering;
-        // setPowerDecibel(newPowerDecibel)
+        const index = Math.round(durationMillis / 80) 
+
+        console.log(durationMillis);
+        let index2 = numSecond;
+        while (index2 < index){
+          newPowerDecibel[index2++] = metering
+          console.log(index2);
+        }
+
         testCtx.saveFinishDecibel(newPowerDecibel);
-        setNumSecond(numSecond + 1);
+        setNumSecond(index);
       }
     }
     statusMetering();
   }, [metering]);
 
-  useEffect(() => {
-    if (CountAhh > 2) {
-      navigation.replace("VadFalse");
-    }
-  }, [CountAhh]);
+  
+
+  // useEffect(() => {
+  //   if (CountAhh > 2) {
+  //     navigation.replace("VadFalse");
+  //   }
+  // }, [CountAhh]);
 
   useEffect(() => {
     if (durationMillis > 6000 && !isFirst && !send) {
@@ -172,12 +191,12 @@ export default function RecordScreen({
         ...Audio.RecordingOptionsPresets.HIGH_QUALITY,
         isMeteringEnabled: true,
       });
-      // recording.setProgressUpdateInterval(500)
+      recording.setProgressUpdateInterval(SampleTimeMillis);
       recording.setOnRecordingStatusUpdate((status) => {
         // console.log("metering:", status.metering);
         // console.log("duration in milisec:", status.durationMillis);
         setMetering(status.metering);
-        setLastDecibel((lastDecibel)=>([...lastDecibel, status.metering]))
+        // setLastDecibel((lastDecibel) => [...lastDecibel, status.metering]);
         setDurationMillis(status.durationMillis);
       });
 
@@ -233,14 +252,16 @@ export default function RecordScreen({
               />
             ) : null}
           </View>
-          {isRecord ? (
-            <WaveAnimation />
-          ) : (
-            <Image
-              style={tw`flex-1 w-full`}
-              source={require("../../assets/img/record-images/Breathing-loop.gif")}
-            />
-          )}
+          <View style={tw`flex-1.4`}>
+            {isRecord ? (
+              <WaveAnimation numSecond={numSecond}/>
+            ) : (
+              <Image
+                style={tw`flex-1 w-full`}
+                source={require("../../assets/img/record-images/Breathing-loop.gif")}
+              />
+            )}
+          </View>
         </View>
 
         <View style={tw`flex-1 w-full items-center flex justify-center`}>
@@ -272,7 +293,9 @@ export default function RecordScreen({
                 strokeWidth={5}
                 onComplete={() => ({ delay: 2 })}
               >
-                {({ remainingTime }) => <Paragraph Style={"text-xl mt-1"}>{remainingTime}</Paragraph>}
+                {({ remainingTime }) => (
+                  <Paragraph Style={"text-xl mt-1"}>{remainingTime}</Paragraph>
+                )}
               </CountdownCircleTimer>
             )}
           </View>
