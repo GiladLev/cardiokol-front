@@ -18,7 +18,7 @@ const Card = ({firstText, secondText, img, ThreeRow}) => {
             {ThreeRow && <Text style={tw`font-bold text-lg`}>{ThreeRow}</Text>}
             
           </View>
-          <View style={tw`flex-1`}>
+          <View style={tw`flex-1 mr-4.5`}>
             {img}
           </View>
 

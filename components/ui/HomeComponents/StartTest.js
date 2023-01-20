@@ -1,5 +1,5 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import tw from "../../../styles/tailwindConf";
 import { Pressable } from "react-native";
 import Paragraph from "../Paragraph";
@@ -10,10 +10,21 @@ import Record from "../../../assets/img/Welocome-images/record.svg";
 import Time from "../../../assets/img/Welocome-images/time.svg";
 
 const StartTest = ({ startTestHandler }) => {
+  const [width, setwidth] = useState(0);
+  const [height, setheight] = useState(0);
+  function handleLayout(event) {
+    const {
+      nativeEvent: { layout },
+    } = event;
+    const { width, height } = layout;
+    setwidth(width);
+    setheight(height-60);
+  }
   return (
-    <View style={tw` w-full h-85 flex items-center`}>
-      <View style={tw`w-90% h-full bg-white p-5 rounded-3xl items-center flex justify-between`}>
-        <Picture width={308} height={181} />
+    <View style={tw` w-full h-80 flex items-center`}>
+      <View style={tw`w-90% h-full bg-white p-5 rounded-3xl items-center flex justify-between`} onLayout={handleLayout}>
+        
+        <Picture width={width*0.9} />
         <View
           style={tw`flex-row flex justify-center items-center w-full h-1/12`}
         >

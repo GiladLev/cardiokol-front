@@ -48,6 +48,7 @@ export default function AuthenticatedStack({ Stack }) {
         contentStyle: { backgroundColor: "#F1F1F1" },
         headerShown: false,
         animation: "none",
+        
       }}
     >
       {/* {authCtx.saveTrainingStatus("TRAINING_STATUS_PATIENT_CREATED")} //change to train - do error */}
