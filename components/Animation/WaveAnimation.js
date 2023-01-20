@@ -33,6 +33,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel, numSecond }) => {
     Animated.timing(positionAnimation, {
       toValue: 1,
       duration: 6000,
+      delay: 250,
       useNativeDriver: false,
     }).start();
   };
@@ -43,6 +44,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel, numSecond }) => {
     position: "absolute",
     top: -20,
     zIndex: 99,
+    
     left: positionAnimation.interpolate({
       inputRange: [0, 1],
       outputRange: [0, screenWidth],
@@ -60,11 +62,11 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel, numSecond }) => {
           lastDecibel={lastDecibel}
           isSaveScreen={isSaveScreen}
           width={width}
-          height={height * 0.75}
+          height={height * 0.7}
         />
       </View>
       <Animated.View style={imageStyle}>
-        <CoverWave width={width} height={height} />
+        <CoverWave width={width*1.1} height={height*1.15} />
       </Animated.View>
     </View>
   );

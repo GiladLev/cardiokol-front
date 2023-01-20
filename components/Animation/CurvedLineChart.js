@@ -18,7 +18,7 @@ function CurvedLineChart(props) {
     if (decibel < minDecibels) { // -160
       return height;
     } else if (decibel > maxDecibels) { //4
-      return 20;
+      return 40;
     } else {
       const decibelValue = minDecibels - maxDecibels;
       return (Math.abs(decibel) / Math.abs(decibelValue)) * height;
