@@ -99,5 +99,5 @@ export default function Root() {
 
   showSplashScreen()
 
-  return <Navigation />;
+  return isTryingLogin ? null : <Navigation />;
 }

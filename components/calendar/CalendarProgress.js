@@ -41,7 +41,13 @@ const CalendarTemplate = () => {
         };
       }
       else {
-        null
+        newDates[item.date] = {
+          marked: true,
+          selected: true,
+          selectedColor: "#FE515C",
+          dotColor: '#FE515C',
+          selectedTextColor: "white",
+        };
       }
     });
     setmMrkedDates(newDates);
