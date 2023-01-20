@@ -135,10 +135,11 @@ export default function RecordScreen({
       }
       if (!isFirst && numSecond < numOfSample) {
         const newPowerDecibel = testCtx.finishDecibel;
-        const index = Math.round(durationMillis / 100) 
-        console.log(index);
+        const index = Math.round(durationMillis / 80) 
+
+        console.log(durationMillis);
         let index2 = numSecond;
-        while (index2 <= index){
+        while (index2 < index){
           newPowerDecibel[index2++] = metering
           console.log(index2);
         }

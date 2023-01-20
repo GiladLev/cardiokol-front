@@ -41,7 +41,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel, numSecond }) => {
     flex: 1,
 
     position: "absolute",
-    top: 50,
+    top: -20,
     zIndex: 99,
     left: positionAnimation.interpolate({
       inputRange: [0, 1],
