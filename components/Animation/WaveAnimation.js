@@ -33,7 +33,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel, numSecond }) => {
     Animated.timing(positionAnimation, {
       toValue: 1,
       duration: 6000,
-      delay: 250,
+      delay: 400,
       useNativeDriver: false,
     }).start();
   };
@@ -42,12 +42,12 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel, numSecond }) => {
     flex: 1,
 
     position: "absolute",
-    top: -20,
+    top: -25,
     zIndex: 99,
     
     left: positionAnimation.interpolate({
       inputRange: [0, 1],
-      outputRange: [0, screenWidth],
+      outputRange: [0, screenWidth-20],
     }),
   };
 

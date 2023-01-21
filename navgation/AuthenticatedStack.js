@@ -48,6 +48,8 @@ export default function AuthenticatedStack({ Stack }) {
         contentStyle: { backgroundColor: "#F1F1F1" },
         headerShown: false,
         animation: "none",
+        drawerPosition: "ltr",
+        
         
       }}
     >
@@ -55,6 +57,7 @@ export default function AuthenticatedStack({ Stack }) {
       {authCtx.trainingStatus === "TRAINING_STATUS_PATIENT_CREATED" ||
       authCtx.trainingStatus == null ? (
         <Stack.Group
+          
           screenOptions={{
             headerShown: false,
           }}

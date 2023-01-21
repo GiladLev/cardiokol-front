@@ -162,11 +162,11 @@ export default function RecordScreen({
 
   
 
-  // useEffect(() => {
-  //   if (CountAhh > 2) {
-  //     navigation.replace("VadFalse");
-  //   }
-  // }, [CountAhh]);
+  useEffect(() => {
+    if (CountAhh > 15) {
+      navigation.replace("VadFalse");
+    }
+  }, [CountAhh]);
 
   useEffect(() => {
     if (durationMillis > 6000 && !isFirst && !send) {

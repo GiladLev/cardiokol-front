@@ -11,6 +11,7 @@ export default function AuthStack({Stack}) {
         headerStyle: { backgroundColor: '#F1F1F1' },
         headerTintColor: Colors.grey200,
         contentStyle: { backgroundColor: '#F1F1F1' },
+        drawerPosition: "ltr",
         headerShown: false
       }}     
       >

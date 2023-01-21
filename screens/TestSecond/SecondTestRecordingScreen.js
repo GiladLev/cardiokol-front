@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import RecordScreen from '../../components/record/RecordScreen'
-import Heart from '../../assets/img/hearts/elements6.svg'
+import Heart from '../../assets/img/hearts/elements3.svg'
 
 const SecondTestRecordingScreen = () => {
 
