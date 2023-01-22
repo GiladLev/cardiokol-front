@@ -16,6 +16,7 @@ export const Context = createContext({
   gender: '',
   playingStatus: true,
   numOfRecord: 0,
+  
   finishDecibel: [-160,-160,-160,-160,-160,-160],
   adherenceWeek: null,
   saveNumOfRecord: (number) =>{},
@@ -51,8 +52,8 @@ function ContextProvider({ children }) {
   const [authAdherenceWeek, setAuthAdherenceWeek] = useState();
   const [testPlayingStatus, setTestPlayingStatus] = useState(true);
   const [testnumOfRecord, setTestNumOfRecord] = useState(0);
-  let fillTheArr = Array(24).fill().map(() => -30);
-  const [finishDecibel, setFinishDecibel] = useState(fillTheArr);
+
+  const [finishDecibel, setFinishDecibel] = useState();
   
   function saveAdherenceWeek(adherenceWeek) {
     setAuthAdherenceWeek(adherenceWeek);

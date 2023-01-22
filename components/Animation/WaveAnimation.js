@@ -66,7 +66,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
         />
       </View>
       <Animated.View style={imageStyle}>
-        <CoverWave width={width*1.1} height={height*1.15} />
+        <CoverWave width={width*1.1} height={height*1.1} />
       </Animated.View>
     </View>
   );

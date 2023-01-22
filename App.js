@@ -11,16 +11,17 @@ I18nManager.forceRTL(false);
 
 I18nManager.allowRTL(false);
 export default function App() {
+  const testCtx = useContext(Context);
+
   useKeepAwake();
   useEffect(() => {
     I18nManager.forceRTL(false);
 
     I18nManager.allowRTL(false);
     I18nManager.isRTL ? Updates.reloadAsync() : null;
-
     testCtx.savePlayingStatus(true);
+
   }, []);
-  const testCtx = useContext(Context);
   return (
     <>
       <StatusBar style="dark" />

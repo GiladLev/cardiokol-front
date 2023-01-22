@@ -8,6 +8,9 @@ function CurvedLineChart(props) {
   const [points, setPoints] = useState([]);
 
   const { width, height, powerDecibel, minDecibels, maxDecibels } = props;
+  console.log('====================================');
+  console.log(powerDecibel);
+  console.log('====================================');
 
 // set X scale
   const SetPlace = (place) => {
@@ -15,7 +18,7 @@ function CurvedLineChart(props) {
   };
 // set Y scale
   const convertDecibels = (decibel) => {
-    if (decibel < minDecibels) { // -160
+    if (decibel < minDecibels || decibel === undefined) { // -160
       return height;
     } else if (decibel > maxDecibels) { //4
       return 40;

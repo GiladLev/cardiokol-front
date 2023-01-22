@@ -46,26 +46,21 @@ export default function RecordScreen({
   const SampleTimeMillis = 100;
   const recordDuration = 4000;
   const numOfSample = Math.round(recordDuration / SampleTimeMillis);
+
   useEffect(() => {
     const fillTheArr = Array(numOfSample)
       .fill()
-      .map(() => -170);
+      .map(() => -160);
     testCtx.saveFinishDecibel(fillTheArr);
   }, []);
 
   const [numSecond, setNumSecond] = useState(0);
-  const stopRecordingAndReset = async () => {
-    if (recording) {
-      await recording.stopAndUnloadAsync();
-      setRecording(null);
-    }
-  };
   useEffect(() => {
     timeout = setTimeout(
       () => {
         startRecording();
       },
-      playingStatus ? 4000 : 1500
+      playingStatus ? 4500 : 3000
     );
     timeout15s = setTimeout(() => {
       if (isFirst && !isRecord && !send) {
@@ -83,19 +78,27 @@ export default function RecordScreen({
       clearTimeout(timeout);
       clearTimeout(timeout15s);
       clearTimeout(timeout30s);
-    
-     
+      const stopRecordingAndReset = async () => {
+        await recording?.stopAndUnloadAsync();
+        setRecording(null);
+      };
+      if (recording) {
         stopRecordingAndReset();
-
+      }
     };
   }, []);
-
+  const stopRecordingAndReset = async () => {
+    await recording?.stopAndUnloadAsync();
+    setRecording(null);
+  };
   useFocusEffect(
     useCallback(() => {
       const unsubscribe = navigation.addListener("beforeRemove", () => {
         // stop recording and save the audio to the media library when the screen is about to be removed
-          stopRecordingAndReset();
 
+        if (recording) {
+          stopRecordingAndReset();
+        }
       });
 
       // the return value of the useFocusEffect callback will be called when the screen is no longer focused
@@ -103,21 +106,18 @@ export default function RecordScreen({
     }, [navigation, recording])
   );
 
-
-  AppState.addEventListener('change', (state) => {
-    if (state === 'background') {
-      stopRecordingAndReset()
+  AppState.addEventListener("change", (state) => {
+    if (state === "background") {
+      stopRecordingAndReset();
     }
   });
-
-
 
   useEffect(() => {
     async function statusMetering() {
       if (metering > -30 && isFirst) {
         setIsRecord(true);
-        await recording?.stopAndUnloadAsync();
         setRecording(undefined);
+        await recording?.stopAndUnloadAsync();
         console.log("stop record &&&&&&&&&&&&&&&&");
         startRecording();
         console.log("start new record");
@@ -142,13 +142,10 @@ export default function RecordScreen({
       }
       if (!isFirst && numSecond < numOfSample) {
         const newPowerDecibel = testCtx.finishDecibel;
-        const index = Math.round(durationMillis / 60) 
-
-        console.log(durationMillis);stopRecording
+        const index = Math.round(durationMillis / 60);
         let index2 = numSecond;
-        while (index2 < index){
-          newPowerDecibel[index2++] = metering
-          console.log(index2);
+        while (index2 < index) {
+          newPowerDecibel[index2++] = metering;
         }
 
         testCtx.saveFinishDecibel(newPowerDecibel);
@@ -158,15 +155,13 @@ export default function RecordScreen({
     statusMetering();
   }, [metering]);
 
-
-
   useEffect(() => {
     if (durationMillis > recordDuration && !isFirst && !send) {
       console.log("stop record &&&&&&&&&&&&&&&&");
       setSend(true);
-      CountAhh > 15 ? navigation.replace("VadFalse") : stopRecording();
+      stopRecording();
     }
-  }, [durationMillis]);
+  }, [durationMillis, CountAhh]);
 
   async function startRecording() {
     try {
@@ -201,23 +196,27 @@ export default function RecordScreen({
   }
 
   async function stopRecording() {
-    console.log("Stopping recording...");
-    setRecording(undefined);
-    await recording.stopAndUnloadAsync();
-    await Audio.setAudioModeAsync({
-      allowsRecordingIOS: false,
-    });
-    const uri = await recording?.getURI();
-    console.log("Recording stopped and stored at", uri);
-
-    if (mode == "Training") {
-      const result = await sendTrainingRecord(uri);
-      // setSend(true);
+    if (CountAhh > 15) {
+      navigation.replace("VadFalse");
     } else {
-      const result = await sendTestRecord(uri);
-      // setSend(true);
+      console.log("Stopping recording...");
+      setRecording(undefined);
+      await recording.stopAndUnloadAsync();
+      await Audio.setAudioModeAsync({
+        allowsRecordingIOS: false,
+      });
+      const uri = await recording?.getURI();
+      console.log("Recording stopped and stored at", uri);
+
+      if (mode == "Training") {
+        const result = await sendTrainingRecord(uri);
+        // setSend(true);
+      } else {
+        const result = await sendTestRecord(uri);
+        // setSend(true);
+      }
+      navigation.replace(nextScreen);
     }
-    navigation.replace(nextScreen);
   }
 
   return (
@@ -246,7 +245,7 @@ export default function RecordScreen({
           </View>
           <View style={tw`flex-1.4`}>
             {isRecord ? (
-              <WaveAnimation numSecond={numSecond}/>
+              <WaveAnimation numSecond={numSecond} />
             ) : (
               <Image
                 style={tw`flex-1 w-full`}
