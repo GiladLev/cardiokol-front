@@ -6,7 +6,8 @@ import { useNavigation } from "@react-navigation/native";
 
 const usePlaySound = (sound, playInStart) => {
   const testCtx = useContext(Context);
-  const playingStatus = testCtx.playingStatus == undefined ? true : testCtx.playingStatus
+
+  const playingStatus = testCtx.playingStatus
   const [isPlaying, setIsPlaying] = useState(playingStatus);
   const [soundObject, setSoundObject] = useState(null);
   const { addListener } = useNavigation();
