@@ -55,7 +55,6 @@ export default function RecordScreen({
 
       testCtx.saveFinishDecibel(fillTheArr);
       setOnLoad(false);
-      
     }
   }, []);
 
@@ -65,7 +64,7 @@ export default function RecordScreen({
       () => {
         startRecording();
       },
-      playingStatus ? 4500 : 3000
+      playingStatus ? 5000 : 3000
     );
     timeout15s = setTimeout(() => {
       if (isFirst && !isRecord && !send) {
@@ -119,45 +118,45 @@ export default function RecordScreen({
 
   useEffect(() => {
     async function statusMetering() {
-      if (metering > -30 && isFirst) {
-        setIsRecord(true);
-        setRecording(undefined);
-        await recording?.stopAndUnloadAsync();
-        console.log("stop record &&&&&&&&&&&&&&&&");
-        startRecording();
-        console.log("start new record");
-        setIsFirst(false);
-      }
-      // Check low volume
-      if (metering < -80 && isRecord) {
-        setIsLowVoice(true);
-      }
-      if (metering > -80 && isRecord) {
-        setIsLowVoice(false);
-      }
-      if (metering > -5 && isRecord) {
-        setIsHighVoice(true);
-      }
-      if (metering < -5 && isRecord) {
-        setIsHighVoice(false);
-      }
-      // Check if the user says aha
-      if (metering < -50 && isRecord) {
-        setCountAhh(CountAhh + 1);
-      }
-      if (!isFirst && numSecond < numOfSample) {
-        const newPowerDecibel = testCtx.finishDecibel;
-        const index = Math.round(durationMillis / 60);
-        let index2 = numSecond;
-        while (index2 < index) {
-          console.log('====================================');
-          console.log(metering);
-          console.log('====================================');
-          newPowerDecibel[index2++] = metering;
+      if (isFirst) {
+        if (metering > -30 && isFirst) {
+          setIsRecord(true);
+          await recording?.stopAndUnloadAsync();
+          setRecording(null);
+          console.log("stop record &&&&&&&&&&&&&&&&");
+          startRecording();
+          console.log("start new record");
+          setIsFirst(false);
         }
+      } else {
+        // Check low volume
+        if (metering < -80 && isRecord) {
+          setIsLowVoice(true);
+        }
+        if (metering > -80 && isRecord) {
+          setIsLowVoice(false);
+        }
+        if (metering > -5 && isRecord) {
+          setIsHighVoice(true);
+        }
+        if (metering < -5 && isRecord) {
+          setIsHighVoice(false);
+        }
+        // Check if the user says aha
+        if (metering < -50 && isRecord) {
+          setCountAhh(CountAhh + 1);
+        }
+        if (!isFirst && numSecond < numOfSample) {
+          const newPowerDecibel = testCtx.finishDecibel;
+          const index = Math.round(durationMillis / 60);
+          let index2 = numSecond;
+          while (index2 < index && !isFirst) {
+            newPowerDecibel[index2++] = metering;
+          }
 
-        testCtx.saveFinishDecibel(newPowerDecibel);
-        setNumSecond(index);
+          testCtx.saveFinishDecibel(newPowerDecibel);
+          setNumSecond(index);
+        }
       }
     }
     statusMetering();
@@ -188,7 +187,7 @@ export default function RecordScreen({
       });
       recording.setProgressUpdateInterval(SampleTimeMillis);
       recording.setOnRecordingStatusUpdate((status) => {
-        console.log("metering:", status.metering);
+        // console.log("metering:", status.metering);
         // console.log("duration in milisec:", status.durationMillis);
         setMetering(status.metering);
         setDurationMillis(status.durationMillis);

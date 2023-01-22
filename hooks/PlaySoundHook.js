@@ -6,8 +6,8 @@ import { useFocusEffect, useNavigation } from "@react-navigation/native";
 
 const usePlaySound = (sound, playInStart) => {
   const testCtx = useContext(Context);
-  const navigation = useNavigation();
-  const playingStatus = testCtx.playingStatus
+  const playingStatus = testCtx.playingStatus == undefined ? true : testCtx.playingStatus;
+
 
   const [isPlaying, setIsPlaying] = useState(playingStatus);
   const [soundObject, setSoundObject] = useState(null);
