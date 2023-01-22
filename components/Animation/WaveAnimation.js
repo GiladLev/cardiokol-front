@@ -1,12 +1,12 @@
 import React, { useContext, useRef, useState } from "react";
 import { View, Animated, Dimensions, Platform } from "react-native";
 import { useEffect } from "react";
-import Wave from "../../assets/img/AnimationWave/voiceRecordingWave.svg";
+import Wave from "../../assets/img/AnimationWave/voiceRecordingWave4Sec.svg";
 import CoverWave from "../../assets/img/AnimationWave/coverWave.svg";
 import tw from "../../styles/tailwindConf";
 import Graph from "./Graph";
 import { Context } from "../../store/context";
-const WaveAnimation = ({ isSaveScreen, lastDecibel, numSecond }) => {
+const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
   const testCtx = useContext(Context);
   const [positionAnimation] = useState(
     new Animated.Value(isSaveScreen ? 1 : 0)
@@ -32,8 +32,8 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel, numSecond }) => {
   const startAnimation = () => {
     Animated.timing(positionAnimation, {
       toValue: 1,
-      duration: 6000,
-      delay: 400,
+      duration: 4000,
+      delay: 200,
       useNativeDriver: false,
     }).start();
   };
@@ -52,7 +52,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel, numSecond }) => {
   };
 
   return (
-    <View style={tw`flex-1 relative py-2`} onLayout={handleLayout}>
+    <View style={tw`flex-1 relative`} onLayout={handleLayout}>
       <View style={tw`w-${width} h-${height} relative`}>
         <View style={tw`absolute top-0 `}>
           <Wave width={width} height={height} />

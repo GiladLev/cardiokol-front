@@ -16,15 +16,15 @@ const VadFalseScreen = () => {
     <View style={tw`h-full w-full bg-backgroundError`}>
       <TemplateError
         nextScreen={"testError"}
-        audio={require("../../assets/audio/HE/Vad.m4a")}
-        head={"הבדיקה נעצרה"}
+        audio={require("../../assets/audio/HE/Vad4sec.m4a")}
+        // head={"הבדיקה נעצרה"}
         secondHead={"הקלטה היתה קצרה מידי"}
         body={
           <>
             <Heart width={130} height={140} />
 
             <View style={tw`flex justify-center items-center mt-5`}>
-              <Title Style={`text-xl`}>נסו להשלים 6 שניות</Title>
+              <Title Style={`text-xl`}>נסו להשלים 4 שניות</Title>
               <Title Style={`text-xl`}>מלאות של אההה</Title>
             </View>
           </>

@@ -85,22 +85,22 @@ function SaveScreen({
           <View style={tw`flex-1.4`}>
             <WaveAnimation isSaveScreen={true} />
           </View>
-
-          <View style={tw`flex-1 items-center flex justify-center`}>
-            <Title Style={"text-xl"}>{recordingNumberTitle}</Title>
-            <Title Style={"text-xl"}>תודה</Title>
-          </View>
-          <View
-            style={tw`flex-1 flex-row-reverse flex justify-around items-center px-30`}
-          >
-            {numCheck.map((item, index) =>
-              item ? (
-                <CheckOff width={27} height={29} key={index} />
-              ) : (
-                <CheckoOn width={27} height={29} key={index} />
-              )
-            )}
-          </View>
+        </View>
+        
+        <View style={tw`flex-1 items-center flex justify-center`}>
+          <Title Style={"text-xl"}>{recordingNumberTitle}</Title>
+          <Title Style={"text-xl"}>תודה</Title>
+        </View>
+        <View
+          style={tw`flex-1 flex-row-reverse flex justify-around items-center px-30`}
+        >
+          {numCheck.map((item, index) =>
+            item ? (
+              <CheckOff width={27} height={29} key={index} />
+            ) : (
+              <CheckoOn width={27} height={29} key={index} />
+            )
+          )}
         </View>
       </View>
     </View>

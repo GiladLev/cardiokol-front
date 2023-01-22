@@ -44,7 +44,7 @@ export default function RecordScreen({
 
   // waveAnimation
   const SampleTimeMillis = 100;
-  const recordDuration = 6000;
+  const recordDuration = 4000;
   const numOfSample = Math.round(recordDuration / SampleTimeMillis);
   useEffect(() => {
     const fillTheArr = Array(numOfSample)
@@ -54,12 +54,18 @@ export default function RecordScreen({
   }, []);
 
   const [numSecond, setNumSecond] = useState(0);
+  const stopRecordingAndReset = async () => {
+    if (recording) {
+      await recording.stopAndUnloadAsync();
+      setRecording(null);
+    }
+  };
   useEffect(() => {
     timeout = setTimeout(
       () => {
         startRecording();
       },
-      playingStatus ? 5000 : 3000
+      playingStatus ? 4000 : 1500
     );
     timeout15s = setTimeout(() => {
       if (isFirst && !isRecord && !send) {
@@ -77,27 +83,19 @@ export default function RecordScreen({
       clearTimeout(timeout);
       clearTimeout(timeout15s);
       clearTimeout(timeout30s);
-      const stopRecordingAndReset = async () => {
-        await recording?.stopAndUnloadAsync();
-        setRecording(null);
-      };
-      if (recording) {
+    
+     
         stopRecordingAndReset();
-      }
+
     };
   }, []);
-  const stopRecordingAndReset = async () => {
-    await recording?.stopAndUnloadAsync();
-    setRecording(null);
-  };
+
   useFocusEffect(
     useCallback(() => {
       const unsubscribe = navigation.addListener("beforeRemove", () => {
         // stop recording and save the audio to the media library when the screen is about to be removed
-        
-        if (recording) {
           stopRecordingAndReset();
-        }
+
       });
 
       // the return value of the useFocusEffect callback will be called when the screen is no longer focused
@@ -118,8 +116,8 @@ export default function RecordScreen({
     async function statusMetering() {
       if (metering > -30 && isFirst) {
         setIsRecord(true);
-        setRecording(undefined);
         await recording?.stopAndUnloadAsync();
+        setRecording(undefined);
         console.log("stop record &&&&&&&&&&&&&&&&");
         startRecording();
         console.log("start new record");
@@ -144,9 +142,9 @@ export default function RecordScreen({
       }
       if (!isFirst && numSecond < numOfSample) {
         const newPowerDecibel = testCtx.finishDecibel;
-        const index = Math.round(durationMillis / 80) 
+        const index = Math.round(durationMillis / 60) 
 
-        console.log(durationMillis);
+        console.log(durationMillis);stopRecording
         let index2 = numSecond;
         while (index2 < index){
           newPowerDecibel[index2++] = metering
@@ -160,19 +158,13 @@ export default function RecordScreen({
     statusMetering();
   }, [metering]);
 
-  
+
 
   useEffect(() => {
-    if (CountAhh > 15) {
-      navigation.replace("VadFalse");
-    }
-  }, [CountAhh]);
-
-  useEffect(() => {
-    if (durationMillis > 6000 && !isFirst && !send) {
+    if (durationMillis > recordDuration && !isFirst && !send) {
       console.log("stop record &&&&&&&&&&&&&&&&");
       setSend(true);
-      stopRecording();
+      CountAhh > 15 ? navigation.replace("VadFalse") : stopRecording();
     }
   }, [durationMillis]);
 
@@ -287,7 +279,7 @@ export default function RecordScreen({
             ) : (
               <CountdownCircleTimer
                 isPlaying={isRecord}
-                duration={6}
+                duration={4}
                 colors={["#219494"]}
                 size={80}
                 strokeWidth={5}

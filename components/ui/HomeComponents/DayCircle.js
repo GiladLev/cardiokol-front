@@ -8,7 +8,7 @@ const DayCircle = ({ item, isCurrentDay }) => {
     <>
     <View
       style={tw`relative  w-8 h-8 rounded-full border border-line items-center flex justify-center ${
-        item.check === "half" ? "bg-half" : item.check ? "bg-secondary" : "bg-dayCircle"
+        item?.check === "half" ? "bg-half" : item?.check ? "bg-secondary" : "bg-dayCircle"
       } `}
     >
       <Paragraph

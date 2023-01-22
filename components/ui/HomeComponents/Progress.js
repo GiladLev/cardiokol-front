@@ -52,7 +52,7 @@ const Progress = () => {
   const [date, setDate] = useState(data);
 
   const getDates = async () => {
-    const dates = await (await getAdherence(day)).adh;
+    const dates = await (await getAdherence(day+1)).adh;
 
     setDatesCheck(JSON.parse(dates));
   };
@@ -61,13 +61,23 @@ const Progress = () => {
     getDates();
   }, []);
   useEffect(() => {
+    console.log(datesCheck);
     if (datesCheck) {
       datesCheck.map((item, index) => {
-        if (item.s_count === 1) {
-          data[index].check = "half";
+        try{
+          
+          if (item.s_count === 1 ) {
+            data[index].check = "half";
+          }
+          else if (item.s_count >= 2 ) {
+            data[index].check = true;
+          }
+          else{
+            data[index].check = false;;
+          }
         }
-        else if (item.s_count >= 2) {
-          data[index].check = true;
+        catch(err){
+          console.log(err);
         }
         
       });
