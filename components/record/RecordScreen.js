@@ -36,7 +36,7 @@ export default function RecordScreen({
   const [isHighVoice, setIsHighVoice] = useState(false);
   const [CountAhh, setCountAhh] = useState(0);
   const [send, setSend] = useState(false);
-  const [lastDecibel, setLastDecibel] = useState([-160, -160]);
+  const [onLoad, setOnLoad] = useState(true);
   const playingStatus = testCtx.playingStatus;
   let timeout;
   let timeout15s;
@@ -48,10 +48,15 @@ export default function RecordScreen({
   const numOfSample = Math.round(recordDuration / SampleTimeMillis);
 
   useEffect(() => {
-    const fillTheArr = Array(numOfSample)
-      .fill()
-      .map(() => -160);
-    testCtx.saveFinishDecibel(fillTheArr);
+    if (onLoad) {
+      const fillTheArr = Array(numOfSample)
+        .fill()
+        .map(() => -170);
+
+      testCtx.saveFinishDecibel(fillTheArr);
+      setOnLoad(false);
+      
+    }
   }, []);
 
   const [numSecond, setNumSecond] = useState(0);
@@ -145,6 +150,9 @@ export default function RecordScreen({
         const index = Math.round(durationMillis / 60);
         let index2 = numSecond;
         while (index2 < index) {
+          console.log('====================================');
+          console.log(metering);
+          console.log('====================================');
           newPowerDecibel[index2++] = metering;
         }
 
@@ -180,10 +188,9 @@ export default function RecordScreen({
       });
       recording.setProgressUpdateInterval(SampleTimeMillis);
       recording.setOnRecordingStatusUpdate((status) => {
-        // console.log("metering:", status.metering);
+        console.log("metering:", status.metering);
         // console.log("duration in milisec:", status.durationMillis);
         setMetering(status.metering);
-        // setLastDecibel((lastDecibel) => [...lastDecibel, status.metering]);
         setDurationMillis(status.durationMillis);
       });
 

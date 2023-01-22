@@ -17,7 +17,7 @@ export const Context = createContext({
   playingStatus: true,
   numOfRecord: 0,
   
-  finishDecibel: [-160,-160,-160,-160,-160,-160],
+  finishDecibel: [],
   adherenceWeek: null,
   saveNumOfRecord: (number) =>{},
   saveId: (id) => {},

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375.75" height="189.65" viewBox="0 0 375.75 189.65">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375.75" height="189.651" viewBox="0 0 375.75 189.651">
   <defs>
     <clipPath id="clip-path">
       <rect id="Rectangle_508" data-name="Rectangle 508" width="375" height="154" transform="translate(-2 205)" fill="#fff" stroke="#707070" stroke-width="1"/>
@@ -7,9 +7,6 @@
       <stop offset="0" stop-color="#94edf3"/>
       <stop offset="1" stop-color="#219494"/>
     </linearGradient>
-    <clipPath id="clip-path-2">
-      <rect id="Rectangle_576" data-name="Rectangle 576" width="375" height="153" transform="translate(0 213)" fill="#212d39"/>
-    </clipPath>
   </defs>
   <g id="voice_recording" data-name="voice recording" transform="translate(0 -200.5)">
     <rect id="white_bg" data-name="white bg" width="375" height="150" transform="translate(0 205)" fill="#fff"/>
@@ -21,16 +18,16 @@
         <line id="Line_690" data-name="Line 690" y2="8.151" transform="translate(329.863)" fill="none" stroke="#b1bdc9" stroke-linecap="round" stroke-width="2"/>
       </g>
       <g id="Group_686" data-name="Group 686" transform="translate(1011 1056.729)">
-        <text id="_1" data-name="1" transform="translate(0)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="-4.27" y="16">1</tspan></text>
-        <text id="_2" data-name="2" transform="translate(109.996)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="-4.27" y="16">2</tspan></text>
-        <text id="_3" data-name="3" transform="translate(219.991)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="-4.27" y="16">3</tspan></text>
-        <text id="_4" data-name="4" transform="translate(328.438)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="-4.27" y="16">4</tspan></text>
+        <text id="_1" data-name="1" transform="translate(-4.27 16)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">1</tspan></text>
+        <text id="_2" data-name="2" transform="translate(105.726 16)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">2</tspan></text>
+        <text id="_3" data-name="3" transform="translate(215.721 16)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">3</tspan></text>
+        <text id="_4" data-name="4" transform="translate(324.168 16)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">4</tspan></text>
       </g>
     </g>
     <g id="voice" transform="translate(2 -4)" clip-path="url(#clip-path)">
-      <path id="color_gradient" data-name="color gradient" d="M8904,3973.4l378.042,5.458-3.014,107.315H8904Z" transform="translate(-8906 -3727.172)" fill="url(#linear-gradient)"/>
-      <g id="Group_1054" data-name="Group 1054" transform="translate(-3.937 114.138)">
-        <path id="Path_355" data-name="Path 355" d="M8904,3990.072s24.9,23.093,53.9,10.041,31.233-59.238,66.928-62.249,46.105,50.526,74.364,67.934,43.875,14.056,73.621,4.355,47.593-20.08,71.39-26.1,38.669,0,38.669,0v103.074H8904Z" transform="translate(-8904 -3937.741)" fill="#208080"/>
+      <path id="color_gradient" data-name="color gradient" d="M8904,3973.4l378.042,6.171-3.014,121.346H8904Z" transform="translate(-8906 -3741.917)" fill="url(#linear-gradient)"/>
+      <g id="Group_1054" data-name="Group 1054" transform="translate(-2 114.138)">
+        <path id="Path_355" data-name="Path 355" d="M8904,3987.146s24.773,21.8,53.625,9.48,31.073-55.927,66.585-58.77,45.87,47.7,73.984,64.137,43.65,13.271,73.245,4.112,47.349-18.958,71.024-24.641,38.471,0,38.471,0v97.313H8904Z" transform="translate(-8904 -3942.741)" fill="#208080"/>
       </g>
     </g>
     <g id="lines-2" data-name="lines">

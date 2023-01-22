@@ -20,7 +20,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.softman.cardiokol",
-      "buildNumber": "4"
+      "buildNumber": "12"
     },
     "android": {
       "versionCode": 12,

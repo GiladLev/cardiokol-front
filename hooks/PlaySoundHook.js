@@ -1,18 +1,18 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useCallback } from "react";
 import { Audio } from "expo-av";
 import { Context } from "../store/context";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 
 
 const usePlaySound = (sound, playInStart) => {
   const testCtx = useContext(Context);
-
+  const navigation = useNavigation();
   const playingStatus = testCtx.playingStatus
+
   const [isPlaying, setIsPlaying] = useState(playingStatus);
   const [soundObject, setSoundObject] = useState(null);
   const { addListener } = useNavigation();
 
-  
   useEffect(() => {
     async function loadSound() {
       const soundObject = new Audio.Sound();
@@ -34,28 +34,32 @@ const usePlaySound = (sound, playInStart) => {
     return () => {
       if (soundObject) {
         soundObject?.stopAndUnloadAsync();
+        setSoundObject(null);
       }
     };
   }, [sound]);
-
-  
   useEffect(() => {
     const unsubscribeWhenBack = addListener('beforeRemove', () => {
       // Stop audio playback when beforeRemove
-
+      if (soundObject) {
       soundObject?.stopAsync();
+      setSoundObject(null);
+      }
     });
     const unsubscribe = addListener('blur', () => {
       // Stop audio playback when the screen goes out of focus
-
+      if (soundObject) {
       soundObject?.stopAsync();
+      setSoundObject(null);
+      }
+
     });
     return () => {
       unsubscribe()
       unsubscribeWhenBack()
-    
     };
   }, [soundObject]);
+
 
 
 

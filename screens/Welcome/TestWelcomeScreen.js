@@ -27,7 +27,7 @@ function TestWelcomeScreen() {
     curHour >= 0 && curHour <= 12
       ? ` בוקר טוב, ${name}`
       : curHour > 12 && curHour <= 18
-      ? `צוהריים טובים, ${name}`
+      ? `צהריים טובים, ${name}`
       : `ערב טוב, ${name}`;
 
   React.useEffect(() => {
@@ -51,7 +51,7 @@ function TestWelcomeScreen() {
       trainingCtx.saveApproachId(result.approachId);
       trainingCtx.saveSessionId(result.sessionId);
 
-      navigation.navigate("PrepareToRecord");
+      navigation.replace("PrepareToRecord");
     } catch (error) {
       console.log(error);
     }
@@ -64,12 +64,6 @@ function TestWelcomeScreen() {
           style={tw`w-full h-14 flex-row flex justify-between items-center`}
         >
           <View style={tw` flex-row mx-3`}>
-            {/* <IconButton
-              icon="exit"
-              color={"#000000"}
-              size={24}
-              onPress={trainingCtx.logout}
-            /> */}
             <Setting width={35} height={35} style={tw`mr-4`} />
             <Pressable onPress={trainingCtx.logout}>
 
