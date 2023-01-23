@@ -64,7 +64,7 @@ export default function RecordScreen({
       () => {
         startRecording();
       },
-      playingStatus ? 5000 : 3000
+      playingStatus ? 4500 : 3000
     );
     timeout15s = setTimeout(() => {
       if (isFirst && !isRecord && !send) {
@@ -123,10 +123,12 @@ export default function RecordScreen({
           setIsRecord(true);
           await recording?.stopAndUnloadAsync();
           setRecording(null);
+          setDurationMillis(0)
           console.log("stop record &&&&&&&&&&&&&&&&");
           startRecording();
           console.log("start new record");
           setIsFirst(false);
+          
         }
       } else {
         // Check low volume

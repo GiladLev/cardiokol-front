@@ -63,7 +63,7 @@ const Progress = () => {
   useEffect(() => {
     console.log(datesCheck);
     if (datesCheck) {
-      datesCheck.map((item, index) => {
+      datesCheck.reverse().map((item, index) => {
         try{
           
           if (item.s_count === 1 ) {

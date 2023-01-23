@@ -6,10 +6,10 @@ import { useFocusEffect, useNavigation } from "@react-navigation/native";
 
 const usePlaySound = (sound, playInStart) => {
   const testCtx = useContext(Context);
-  const playingStatus = testCtx.playingStatus == undefined ? true : testCtx.playingStatus;
 
-
-  const [isPlaying, setIsPlaying] = useState(playingStatus);
+  
+  
+  const [isPlaying, setIsPlaying] = useState(testCtx.playingStatus);
   const [soundObject, setSoundObject] = useState(null);
   const { addListener } = useNavigation();
 
@@ -20,8 +20,8 @@ const usePlaySound = (sound, playInStart) => {
         await soundObject.loadAsync(sound);
         setSoundObject(soundObject);
         const isPlayingNow = await (await soundObject.getStatusAsync()).isPlaying
-        playingStatus && playInStart && !isPlayingNow && await soundObject.playAsync();
-        playingStatus && playInStart && setIsPlaying(true);
+        isPlaying && playInStart && !isPlayingNow && await soundObject.playAsync();
+        isPlaying && playInStart && setIsPlaying(true);
       } catch (error) {
         console.log(error);
       }
