@@ -1,6 +1,6 @@
-import { View, Text, TextInput, StyleSheet, Image } from "react-native";
+import { View, Text, TextInput, StyleSheet, Image, Pressable } from "react-native";
 import { Colors } from "../../constants/styles";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Paragraph from "../ui/Paragraph";
 import tw from "../../styles/tailwindConf";
 function Input({
@@ -19,7 +19,7 @@ function Input({
 }) {
   // const [text, setText] = useState('');
   const [isValdtaion, setIsValdtaion] = useState(false);
-
+  const inputRef = useRef(null);
   useEffect(() => {
     if (kind === "phone") {
       // if (value.match(/^\(?[\d]{3}\)?[\s-]?[\d]{3}[\s-]?[\d]{4}$/)) {
@@ -44,7 +44,8 @@ function Input({
           {value ? label : ""}
         </Paragraph>
       </View>
-      <View
+      <Pressable
+        onPress={() => inputRef.current.focus()}
         style={[
           styles.SectionStyle,
           error ? styles.inputerror : isValdtaion ? styles.inputInvalidGood : null,
@@ -53,6 +54,7 @@ function Input({
         ]}
       >
         <TextInput
+        ref={inputRef}
           style={[styles.input, error ? styles.inputInvalid : null]}
           autoCapitalize={false}
           keyboardType={keyboardType}
@@ -62,7 +64,7 @@ function Input({
           placeholder={placeholder}
         />
         <View style={tw`ml-2`}>{image}</View>
-      </View>
+      </Pressable>
     </View>
   );
 }
