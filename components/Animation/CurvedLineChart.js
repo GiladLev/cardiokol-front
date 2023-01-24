@@ -9,7 +9,7 @@ function CurvedLineChart(props) {
 
   const { width, height, powerDecibel, minDecibels, maxDecibels } = props;
 
-// set X scale
+  // set X scale
   const SetPlace = (place) => {
     return width/ powerDecibel.length * place;
   };

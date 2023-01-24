@@ -16,8 +16,8 @@ export const Context = createContext({
   gender: '',
   playingStatus: true,
   numOfRecord: 0,
-  
   finishDecibel: [],
+  minDecibel: -60,
   adherenceWeek: null,
   saveNumOfRecord: (number) =>{},
   saveId: (id) => {},
@@ -34,6 +34,7 @@ export const Context = createContext({
   saveGender: (gender) => {},
   savePlayingStatus: (playingStatus) => {},
   saveFinishDecibel: (finishDecibel) => {},
+  setMinDecibel: (minDecibel) => {},
   saveAdherenceWeek: (adherenceWeek) => {},
 });
 
@@ -54,6 +55,7 @@ function ContextProvider({ children }) {
   const [testnumOfRecord, setTestNumOfRecord] = useState(0);
 
   const [finishDecibel, setFinishDecibel] = useState();
+  const [minDecibel, setMinDecibel] = useState(-60);
   
   function saveAdherenceWeek(adherenceWeek) {
     setAuthAdherenceWeek(adherenceWeek);
@@ -166,7 +168,10 @@ function ContextProvider({ children }) {
     saveFinishDecibel: saveFinishDecibel,
     finishDecibel: finishDecibel,
     adherenceWeek: authAdherenceWeek,
-    saveAdherenceWeek: saveAdherenceWeek
+    saveAdherenceWeek: saveAdherenceWeek,
+    setMinDecibel: setMinDecibel,
+    minDecibel: minDecibel,
+
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

@@ -6,14 +6,15 @@ import { useContext } from "react";
 import { Context } from "../../store/context";
 
 const Graph = (props) => {
+  const store = useContext(Context);
   const { powerDecibel, width, height } = props;
-  const [minDecibels] = useState(-60);
+  // const [minDecibels] = useState(-60);
   const [maxDecibels] = useState(4)
   return (
     <View
       style={tw`w-full h-full pb-3`}
     >
-      <CurvedLineChart width={width} height={height} powerDecibel={powerDecibel} minDecibels={minDecibels} maxDecibels={maxDecibels}/>
+      <CurvedLineChart width={width} height={height} powerDecibel={powerDecibel} minDecibels={store.minDecibel} maxDecibels={maxDecibels}/>
     </View>
   );
 };

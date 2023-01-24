@@ -36,7 +36,7 @@ import WaveAnimation from "../components/Animation/WaveAnimation";
 import RecordScreen from "../components/record/RecordScreen";
 
 import CalendarScreen from "../screens/Welcome/CalendarScreen";
-
+import SettingScreen from "../screens/Status/SettingScreen";
 
 export default function AuthenticatedStack({ Stack }) {
   const authCtx = useContext(Context);
@@ -49,21 +49,19 @@ export default function AuthenticatedStack({ Stack }) {
         headerShown: false,
         animation: "none",
         drawerPosition: "ltr",
-        
-        
       }}
     >
       {/* {authCtx.saveTrainingStatus("TRAINING_STATUS_PATIENT_CREATED")} //change to train - do error */}
       {authCtx.trainingStatus === "TRAINING_STATUS_PATIENT_CREATED" ||
       authCtx.trainingStatus == null ? (
         <Stack.Group
-          
           screenOptions={{
             headerShown: false,
           }}
         >
           <Stack.Screen name="Welcome" component={TrainingWelcomeScreen} />
           <Stack.Screen name="Calendar" component={CalendarScreen} />
+          <Stack.Screen name="Setting" component={SettingScreen} />
           <Stack.Screen
             name="PrepareToRecord"
             component={PrepareToTrainingScreen}
@@ -137,11 +135,13 @@ export default function AuthenticatedStack({ Stack }) {
           <Stack.Screen name="VadFalse" component={VadFalseScreen} />
           <Stack.Screen name="VowelFalse" component={VowelFalseScreen} />
           <Stack.Screen name="StopAlert" component={StopAlert} />
-          <Stack.Screen name="ErrorToSendToBack" component={ErrorToSendToBack} />
+          <Stack.Screen
+            name="ErrorToSendToBack"
+            component={ErrorToSendToBack}
+          />
         </Stack.Group>
       ) : (
         <Stack.Group>
-
           <Stack.Screen name="Welcome" component={TestWelcomeScreen} />
           <Stack.Screen name="Calendar" component={CalendarScreen} />
 
@@ -178,7 +178,10 @@ export default function AuthenticatedStack({ Stack }) {
           <Stack.Screen name="VadFalse" component={VadFalseScreen} />
           <Stack.Screen name="VowelFalse" component={VowelFalseScreen} />
           <Stack.Screen name="StopAlert" component={StopAlert} />
-          <Stack.Screen name="ErrorToSendToBack" component={ErrorToSendToBack} />
+          <Stack.Screen
+            name="ErrorToSendToBack"
+            component={ErrorToSendToBack}
+          />
 
           <Stack.Screen
             name="ThirdRecording"
@@ -189,7 +192,7 @@ export default function AuthenticatedStack({ Stack }) {
             name="ThirdRecordSaved"
             component={ThirdTestRecordSavedScreen}
           />
-
+            <Stack.Screen name="Setting" component={SettingScreen} />
           <Stack.Screen name="TestComplete" component={TestCompleteScreen} />
         </Stack.Group>
       )}
