@@ -20,7 +20,7 @@ const CalendarScreen = () => {
     curHour >= 0 && curHour <= 12
       ? ` בוקר טוב, ${name}`
       : curHour > 12 && curHour <= 18
-      ? `צוהריים טובים, ${name}`
+      ? `צהריים טובים, ${name}`
       : `ערב טוב, ${name}`;
   return (
     <SafeAreaView style={tw`w-full h-full bg-background pb-16`}>

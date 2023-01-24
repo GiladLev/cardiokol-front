@@ -69,7 +69,7 @@ function ContextProvider({ children }) {
   }
   function savePlayingStatus(playingStatus) {
     setTestPlayingStatus(playingStatus);
-    playingStatus && AsyncStorage.setItem('playingStatus', playingStatus.toString());
+    // playingStatus && AsyncStorage.setItem('playingStatus', playingStatus.toString());
   }
 
   function saveGender(gender) {

@@ -9,7 +9,6 @@ import { Context } from "../../store/context";
 import tw from "../../styles/tailwindConf";
 import TopNav from "../../components/ui/Basic/TopNav";
 import Microphone from "../../assets/img/record-images/microphone.svg";
-import Hurt from "../../assets/img/record-images/hurt.svg";
 import Title from "../../components/ui/Title";
 import Paragraph from "../../components/ui/Paragraph";
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
@@ -124,6 +123,7 @@ export default function RecordScreen({
           await recording?.stopAndUnloadAsync();
           setRecording(null);
           setDurationMillis(0)
+          setMetering(-160)
           console.log("stop record &&&&&&&&&&&&&&&&");
           startRecording();
           console.log("start new record");
