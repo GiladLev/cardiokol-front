@@ -19,7 +19,6 @@ export default function Navigation() {
     async function checkNetwork() {
       const network = await getNetworkStateAsync();
       setNetworkState(network?.isConnected)
-      
     }
 
     useEffect(() => {

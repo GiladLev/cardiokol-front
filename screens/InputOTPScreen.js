@@ -116,7 +116,6 @@ function InputOTPScreen() {
       //   return <AuthContent isLogin onAuthenticate={onChangeText} />;
     }
   }
-  console.log(error, "Error");
   async function onResendOTP() {
     try {
       const result = await resendOtp();
