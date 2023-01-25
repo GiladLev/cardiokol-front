@@ -55,7 +55,7 @@ function ContextProvider({ children }) {
   const [testnumOfRecord, setTestNumOfRecord] = useState(0);
 
   const [finishDecibel, setFinishDecibel] = useState();
-  const [minDecibel, setMinDecibel] = useState(-60);
+  const [minDecibel, setMinDecibel] = useState(-30);
   
   function saveAdherenceWeek(adherenceWeek) {
     setAuthAdherenceWeek(adherenceWeek);
