@@ -46,7 +46,7 @@ const useRecord = (mode, nextScreen) => {
       () => {
         startRecording();
       },
-      playingStatus ? 4700 : 3000
+      playingStatus ? 5000 : 3000
     );
     timeout15s = setTimeout(() => {
       if (isFirst && !isRecord && !send) {

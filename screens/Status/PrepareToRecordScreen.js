@@ -24,6 +24,7 @@ function PrepareToRecord() {
   
 
   function startTestHandler() {
+    
     navigation.navigate("FirstRecording");
   }
 
@@ -45,14 +46,14 @@ function PrepareToRecord() {
       {/* body */}
       <View style={tw`flex-2 flex  justify-around items-center`}>
         <Card
-          firstText={"בדקו שאתם"}
+          firstText={trainingCtx.gender == "MALE" ? "בדוק שאתה" : "בדקי שאת"}
           secondText={"בסביבה שקטה"}
           img={<SilenceIcon width={70} height={70} />}
         />
 
         <Card
-          firstText={"החזיקו את הטלפון"}
-          secondText={"קרוב אליכם"}
+          firstText={trainingCtx.gender == "MALE" ? "החזיק את הטלפון" : "החזיקי את הטלפון"}
+          secondText={"קרוב אליך"}
           img={<PhoneHold width={70} height={70} />}
         />
       </View>
