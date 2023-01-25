@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Alert, Image, ScrollView, Pressable } from "react-native";
+import { View, ScrollView, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { Context } from "../../store/context";
@@ -13,11 +13,11 @@ import Information from "../../components/ui/HomeComponents/Information";
 import MedicalRecommend from "../../components/ui/HomeComponents/MedicalRecommend";
 import Progress from "../../components/ui/HomeComponents/Progress";
 import { Audio } from "expo-av";
-import Setting from "../../assets/img/Welocome-images/settings.svg";
-import Help from "../../assets/img/Welocome-images/help.svg";
+
+import HomeTopNav from "../../components/ui/HomeComponents/HomeTopNav";
 function TestWelcomeScreen() {
   const navigation = useNavigation();
-  
+
   const trainingCtx = useContext(Context);
   const name = trainingCtx.name;
 
@@ -44,7 +44,6 @@ function TestWelcomeScreen() {
   }, []);
 
   async function startTestHandler() {
-
     try {
       let result = await startTest();
 
@@ -60,18 +59,7 @@ function TestWelcomeScreen() {
   return (
     <SafeAreaView style={tw`w-full h-full bg-background pb-16`}>
       <ScrollView>
-        <View
-          style={tw`w-full h-14 flex-row flex justify-between items-center`}
-        >
-          <View style={tw` flex-row mx-3`}>
-            <Setting width={35} height={35} style={tw`mr-4`} />
-            <Pressable onPress={trainingCtx.logout}>
-
-            <Help width={35} height={35} />
-            </Pressable>
-          </View>
-          <Paragraph Style={`mr-2 text-lg`}>{greeting}</Paragraph>
-        </View>
+        <HomeTopNav/>
 
         <StartTest startTestHandler={startTestHandler} />
 

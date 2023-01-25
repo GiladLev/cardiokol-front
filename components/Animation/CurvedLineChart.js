@@ -9,7 +9,7 @@ function CurvedLineChart(props) {
 
   const { width, height, powerDecibel, minDecibels, maxDecibels } = props;
 
-// set X scale
+  // set X scale
   const SetPlace = (place) => {
     return width/ powerDecibel.length * place;
   };
@@ -18,7 +18,7 @@ function CurvedLineChart(props) {
     if (decibel < minDecibels || decibel === undefined) { // -160
       return height;
     } else if (decibel > maxDecibels) { //4
-      return 40;
+      return 10;
     } else {
       const decibelValue = minDecibels - maxDecibels;
       return (Math.abs(decibel) / Math.abs(decibelValue)) * height;
@@ -58,9 +58,9 @@ function CurvedLineChart(props) {
 
 
   return (
-    <View style={tw`flex-1`}>
+    <View style={tw`flex-1 `}>
 
-     <Svg width={width} height={height}>
+     <Svg width={"100%"} height={height}>
         <Path d={pathData} fill="white" />
       </Svg> 
     </View>

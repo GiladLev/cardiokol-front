@@ -8,6 +8,7 @@ import Graph from "./Graph";
 import { Context } from "../../store/context";
 const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
   const testCtx = useContext(Context);
+  const delay = Platform.OS === 'ios' ? 20 : 100
   const [positionAnimation] = useState(
     new Animated.Value(isSaveScreen ? 1 : 0)
   );
@@ -33,7 +34,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
     Animated.timing(positionAnimation, {
       toValue: 1,
       duration: 4000,
-      delay: 200,
+      delay: delay,
       useNativeDriver: false,
     }).start();
   };

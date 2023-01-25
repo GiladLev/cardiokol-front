@@ -18,10 +18,10 @@
         <line id="Line_690" data-name="Line 690" y2="8.151" transform="translate(329.863)" fill="none" stroke="#b1bdc9" stroke-linecap="round" stroke-width="2"/>
       </g>
       <g id="Group_686" data-name="Group 686" transform="translate(1011 1056.729)">
-        <text id="_1" data-name="1" transform="translate(-4.27 16)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">1</tspan></text>
-        <text id="_2" data-name="2" transform="translate(105.726 16)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">2</tspan></text>
-        <text id="_3" data-name="3" transform="translate(215.721 16)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">3</tspan></text>
-        <text id="_4" data-name="4" transform="translate(324.168 16)" fill="#3d4648" font-size="15" font-family="Heebo-Medium, Heebo" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">4</tspan></text>
+        <text id="_1" data-name="1" transform="translate(-4.27 16)" fill="#3d4648" font-size="15" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">1</tspan></text>
+        <text id="_2" data-name="2" transform="translate(105.726 16)" fill="#3d4648" font-size="15" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">2</tspan></text>
+        <text id="_3" data-name="3" transform="translate(215.721 16)" fill="#3d4648" font-size="15" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">3</tspan></text>
+        <text id="_4" data-name="4" transform="translate(324.168 16)" fill="#3d4648" font-size="15" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">4</tspan></text>
       </g>
     </g>
     <g id="voice" transform="translate(2 -4)" clip-path="url(#clip-path)">
