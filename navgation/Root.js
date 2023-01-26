@@ -66,7 +66,7 @@ export default function Root() {
 
     async function fetchPlayingStatus() {
       const storedPlayingStatus = await AsyncStorage.getItem("playingStatus");
-      authCtx.savePlayingStatus(Boolean(storedPlayingStatus));
+      authCtx.savePlayingStatus(true);
     }
 
     
@@ -95,6 +95,7 @@ export default function Root() {
     }
 
     fetchToken();
+
   }, []);
 
   showSplashScreen()

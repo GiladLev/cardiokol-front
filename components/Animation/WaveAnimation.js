@@ -8,7 +8,7 @@ import Graph from "./Graph";
 import { Context } from "../../store/context";
 const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
   const testCtx = useContext(Context);
-  const delay = Platform.OS === 'ios' ? 20 : 100
+  const delay = Platform.OS === 'ios' ? 20 : 400
   const [positionAnimation] = useState(
     new Animated.Value(isSaveScreen ? 1 : 0)
   );

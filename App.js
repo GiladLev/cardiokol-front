@@ -19,7 +19,7 @@ export default function App() {
 
     I18nManager.allowRTL(false);
     I18nManager.isRTL ? Updates.reloadAsync() : null;
-    testCtx.savePlayingStatus(true);
+    
 
   }, []);
   return (

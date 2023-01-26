@@ -1,19 +1,16 @@
 import { useContext, useEffect } from "react";
-import { StyleSheet, Text, View, Alert, Image } from "react-native";
+import {  View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { Context } from "../../store/context";
-import { startTest } from "../../util/testing";
 
 import tw from "../../styles/tailwindConf";
-import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 import TopNav from "../../components/ui/Basic/TopNav";
 import Card from "../../components/ui/Basic/Card";
 
 import PhoneHold from "../../assets/img/beforeFirstRecord-images/phoneHold.svg";
 import SilenceIcon from "../../assets/img/beforeFirstRecord-images/silenceIcon.svg";
 import Button from "../../components/ui/Basic/Button";
-import FinshAnimation from "../../components/Animation/FinshAnimation";
 
 function PrepareToRecord() {
   const trainingCtx = useContext(Context);

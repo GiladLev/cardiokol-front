@@ -13,6 +13,8 @@ const usePlaySound = (sound, playInStart) => {
   const [soundObject, setSoundObject] = useState(null);
   const { addListener } = useNavigation();
 
+
+  
   useEffect(() => {
     async function loadSound() {
       const soundObject = new Audio.Sound();
@@ -20,8 +22,9 @@ const usePlaySound = (sound, playInStart) => {
         await soundObject.loadAsync(sound);
         setSoundObject(soundObject);
         const isPlayingNow = await (await soundObject.getStatusAsync()).isPlaying
-        isPlaying && playInStart && !isPlayingNow && await soundObject.playAsync();
-        isPlaying && playInStart && setIsPlaying(true);
+        if (isPlaying && playInStart && !isPlayingNow) {
+          await soundObject.playAsync();
+        }
       } catch (error) {
         console.log(error);
       }
@@ -33,7 +36,7 @@ const usePlaySound = (sound, playInStart) => {
 
     return () => {
       if (soundObject) {
-        soundObject?.stopAndUnloadAsync();
+        soundObject?.stopAsync();
         setSoundObject(null);
       }
     };

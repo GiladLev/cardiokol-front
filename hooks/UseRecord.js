@@ -90,10 +90,11 @@ const useRecord = (mode, nextScreen) => {
         }
       } else {
         // Check low volume
-        if (metering < -80 && isRecord) {
+
+        if (metering < testCtx.minDecibel && isRecord) {
           setIsLowVoice(true);
         }
-        if (metering > -80 && isRecord) {
+        if (metering > testCtx.minDecibel && isRecord) {
           setIsLowVoice(false);
         }
         if (metering > -5 && isRecord) {

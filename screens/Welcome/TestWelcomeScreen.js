@@ -41,6 +41,7 @@ function TestWelcomeScreen() {
       });
     }
     Permissions();
+    
   }, []);
 
   async function startTestHandler() {
