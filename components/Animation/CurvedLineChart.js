@@ -50,12 +50,8 @@ function CurvedLineChart(props) {
 
   }, [props])
   
-
-
   const lineGenerator = d3.line().curve(d3.curveCardinal);
-
   const pathData = lineGenerator(points);
-
 
   return (
     <View style={tw`flex-1 `}>
@@ -66,7 +62,5 @@ function CurvedLineChart(props) {
     </View>
   );
 }
-
-
 
 export default CurvedLineChart;

@@ -10,7 +10,7 @@ const useRecord = (mode, nextScreen) => {
   const navigation = useNavigation();
   const testCtx = useContext(Context);
   const [isRecord, setIsRecord] = useState(false);
-  const [metering, setMetering] = useState(-160);
+  const [metering, setMetering] = useState();
   const [durationMillis, setDurationMillis] = useState(0);
   const [isFirst, setIsFirst] = useState(true);
   const [isLowVoice, setIsLowVoice] = useState(false);
@@ -28,10 +28,10 @@ const useRecord = (mode, nextScreen) => {
   // waveAnimation
   const SampleTimeMillis = 100;
   const recordDuration = 4000;
-  const numOfSample = Math.round(recordDuration / SampleTimeMillis);
+  const numOfSample = Math.round(recordDuration/100);
 
   useEffect(() => {
-    if (onLoad) {
+    if (onLoad && isFirst) {
       const fillTheArr = Array(numOfSample)
         .fill()
         .map(() => -170);
@@ -82,13 +82,25 @@ const useRecord = (mode, nextScreen) => {
           await recording?.stopAndUnloadAsync();
           setRecording(null);
           setDurationMillis(0);
-          setMetering(-160);
+          // setMetering(-160);
           console.log("stop record &&&&&&&&&&&&&&&&");
           startRecording();
           console.log("start new record");
           setIsFirst(false);
+
         }
       } else {
+
+        if (!isFirst && numSecond < numOfSample) {
+          const newPowerDecibel = testCtx.finishDecibel;
+          const index = Math.round(durationMillis/100);
+          let index2 = numSecond;
+          while (index2 <= index && !isFirst) {
+            newPowerDecibel[index2++] = metering;
+          }
+          testCtx.saveFinishDecibel(newPowerDecibel);
+          setNumSecond(index);
+        }
         // Check low volume
 
         if (metering < testCtx.minDecibel && isRecord) {
@@ -107,17 +119,7 @@ const useRecord = (mode, nextScreen) => {
         if (metering < -50 && isRecord) {
           setCountAhh(CountAhh + 1);
         }
-        if (!isFirst && numSecond < numOfSample) {
-          const newPowerDecibel = testCtx.finishDecibel;
-          const index = Math.round(durationMillis / 60);
-          let index2 = numSecond;
-          while (index2 < index && !isFirst) {
-            newPowerDecibel[index2++] = metering;
-          }
 
-          testCtx.saveFinishDecibel(newPowerDecibel);
-          setNumSecond(index);
-        }
       }
     }
     statusMetering();
@@ -153,7 +155,6 @@ const useRecord = (mode, nextScreen) => {
         setMetering(status.metering);
         setDurationMillis(status.durationMillis);
       });
-
       await recording.startAsync();
       setRecording(recording);
       console.log("Recording started");

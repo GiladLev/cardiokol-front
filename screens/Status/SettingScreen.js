@@ -23,8 +23,8 @@ const SettingScreen = () => {
             </View>
             <Slider
               style={{ width: 200, height: 40 }}
-              minimumValue={-160}
-              maximumValue={-20}
+              minimumValue={-30}
+              maximumValue={-10}
               minimumTrackTintColor="#000000"
               maximumTrackTintColor="#000000"
               onValueChange={(value) => store.setMinDecibel(Math.round(value))}

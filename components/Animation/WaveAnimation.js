@@ -8,7 +8,7 @@ import Graph from "./Graph";
 import { Context } from "../../store/context";
 const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
   const testCtx = useContext(Context);
-  const delay = Platform.OS === 'ios' ? 20 : 400
+  const delay = Platform.OS === 'ios' ? 0 : 0
   const [positionAnimation] = useState(
     new Animated.Value(isSaveScreen ? 1 : 0)
   );
@@ -34,7 +34,7 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
     Animated.timing(positionAnimation, {
       toValue: 1,
       duration: 4000,
-      delay: delay,
+      // delay: delay,
       useNativeDriver: false,
     }).start();
   };
@@ -43,12 +43,12 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
     flex: 1,
 
     position: "absolute",
-    top: -25,
+    top: -20,
     zIndex: 99,
     
     left: positionAnimation.interpolate({
       inputRange: [0, 1],
-      outputRange: [0, screenWidth-20],
+      outputRange: [0, screenWidth-5],
     }),
   };
 
@@ -66,9 +66,9 @@ const WaveAnimation = ({ isSaveScreen, lastDecibel }) => {
           height={height * 0.7}
         />
       </View>
-      <Animated.View style={imageStyle}>
+      {/* <Animated.View style={imageStyle}>
         <CoverWave width={width*1.1} height={height*1.1} />
-      </Animated.View>
+      </Animated.View> */}
     </View>
   );
 };
