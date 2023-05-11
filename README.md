@@ -16,10 +16,10 @@ Login
 
 Home page
 
-![alt text](https://res.cloudinary.com/dxexnhjmi/video/upload/v1683798655/WhatsApp_Video_2023-05-11_at_12.31.11_csw79u.mp4)
+https://res.cloudinary.com/dxexnhjmi/video/upload/v1683798655/WhatsApp_Video_2023-05-11_at_12.31.11_csw79u.mp4
 
 
 Test
 
-![alt text](https://res.cloudinary.com/dxexnhjmi/video/upload/v1683798588/WhatsApp_Video_2023-05-11_at_12.30.26_rifbdp.mp4)
+https://res.cloudinary.com/dxexnhjmi/video/upload/v1683798588/WhatsApp_Video_2023-05-11_at_12.30.26_rifbdp.mp4
 
