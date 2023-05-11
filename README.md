@@ -1,10 +1,6 @@
 # Cardiokol
 
-Cardiokol is a privately-owned digital telehealth company that develops voice-based markers and methods for monitoring and screening heart rhythm disorders in large at-risk populations.
-
-We offer revolutionary affordable, scalable, long-term and age-friendly monitoring solutions.
-
-Our technology is applicable for mass at-risk populations including older adults (65+), by utilizing proprietary technology that is implemented in speech platforms such as landlines, smartphones, smart speakers and voice assistants.
+Development of a user interface for Cardiocol, a company that specializes in detecting heart problems using sound.
 
 ## download app - google play:
 https://play.google.com/store/apps/details?id=softman.CardioKol
