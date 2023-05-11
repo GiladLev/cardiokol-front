@@ -6,8 +6,7 @@ Development of a user interface for Cardiocol, a company that specializes in det
 https://play.google.com/store/apps/details?id=softman.CardioKol
 ## Example
 
-https://github.com/GiladLev/cardiokol-front/assets/40337277/a3ac8b74-6aaa-4770-af0c-942af1ed528f
-
+https://github.com/GiladLev/cardiokol-front/assets/40337277/7d0fcdc7-ff11-4871-b4ec-d4996047e78b
 
 ## Login
 
