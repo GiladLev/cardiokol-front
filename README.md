@@ -7,9 +7,6 @@ We offer revolutionary affordable, scalable, long-term and age-friendly monitori
 Our technology is applicable for mass at-risk populations including older adults (65+), by utilizing proprietary technology that is implemented in speech platforms such as landlines, smartphones, smart speakers and voice assistants.
 
 
-https://github.com/GiladLev/cardiokol-front/assets/40337277/e085af5d-2ca3-4bb4-9058-ca5f6e8b11a9
-
-
 https://github.com/GiladLev/cardiokol-front/assets/40337277/12e4be3e-56dc-45f3-bd67-1dc4f24446d8
 
 Login
