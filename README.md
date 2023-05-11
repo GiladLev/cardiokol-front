@@ -15,6 +15,6 @@ https://github.com/GiladLev/cardiokol-front/assets/40337277/7d0fcdc7-ff11-4871-b
 ## SMS confirmation
 ![alt text](https://res.cloudinary.com/dxexnhjmi/image/upload/v1683798586/WhatsApp_Image_2023-05-11_at_12.30.46_s6uijl.jpg)
 
-
-https://github.com/GiladLev/cardiokol-front/assets/40337277/307a2ac7-6a87-4b0b-858c-2eb8898a621d
+## HomeScreen
+https://github.com/GiladLev/cardiokol-front/assets/40337277/5cf56c91-73b6-4d17-a6e2-18f784f5891d
 
