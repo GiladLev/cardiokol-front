@@ -1,6 +1,6 @@
 # Cardiokol
 
-Development of a user interface for Cardiocol, a company that specializes in detecting heart problems using sound.
+Development of a user interface for Cardiokol, a company that specializes in detecting heart problems using sound. https://www.cardiokol.com/
 
 ## download app - google play:
 https://play.google.com/store/apps/details?id=softman.CardioKol
